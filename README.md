@@ -1,2 +1,939 @@
-# Uganda-week-Project-D
-eaeaeaeaeaeaeeea
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uganda Week Registration</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uganda: {
+                            black: '#111111',
+                            yellow: '#FCDC04',
+                            red: '#D92323',
+                            gold: '#EAB308',
+                            dark: '#0A0A0A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0a0a;
+            min-height: 100vh;
+        }
+
+        /* Fluid Morphing Animated Color Gradient Background */
+        .uganda-morph-bg {
+            background: linear-gradient(
+                135deg, 
+                #0a0a0a 0%, 
+                #1a0505 20%, 
+                #8b1111 40%, 
+                #b8860b 60%, 
+                #111111 80%, 
+                #0a0a0a 100%
+            );
+            background-size: 250% 250%;
+            animation: ugandaMorph 16s ease-in-out infinite alternate;
+        }
+
+        @keyframes ugandaMorph {
+            0% { background-position: 0% 15%; }
+            25% { background-position: 50% 85%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 15%; }
+            100% { background-position: 0% 85%; }
+        }
+
+        /* Background Flag Ribbon: Repeated 1‑2 times vertically */
+        .uganda-flag-ribbon {
+            background-image: repeating-linear-gradient(
+                180deg,
+                rgba(17, 17, 17, 0.4) 0%,
+                rgba(17, 17, 17, 0.4) 16.6%,
+                rgba(252, 220, 4, 0.25) 16.6%,
+                rgba(252, 220, 4, 0.25) 33.3%,
+                rgba(217, 35, 35, 0.25) 33.3%,
+                rgba(217, 35, 35, 0.25) 50%
+            );
+            background-size: 100% 50vh;
+            background-repeat: repeat-y;
+        }
+
+        /* Ambient glow circles */
+        .ambient-glow-1 {
+            position: absolute;
+            width: 45vw;
+            height: 45vw;
+            max-width: 500px;
+            max-height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(252, 220, 4, 0.25) 0%, rgba(217, 35, 35, 0) 70%);
+            filter: blur(60px);
+            animation: floatGlow1 12s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            width: 50vw;
+            height: 50vw;
+            max-width: 600px;
+            max-height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(217, 35, 35, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            filter: blur(70px);
+            animation: floatGlow2 15s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes floatGlow1 {
+            0% { transform: translate(-10%, -10%) scale(1); }
+            100% { transform: translate(30%, 20%) scale(1.2); }
+        }
+
+        @keyframes floatGlow2 {
+            0% { transform: translate(20%, 30%) scale(1.1); }
+            100% { transform: translate(-20%, -10%) scale(0.9); }
+        }
+
+        .glass-card {
+            background: rgba(18, 18, 18, 0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(252, 220, 4, 0.25);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 0%, #FCDC04 50%, #EAB308 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen uganda-morph-bg text-gray-100 flex flex-col justify-between relative overflow-x-hidden">
+    
+    <div class="fixed inset-0 uganda-flag-ribbon pointer-events-none opacity-60"></div>
+    <div class="ambient-glow-1 top-10 left-10"></div>
+    <div class="ambient-glow-2 bottom-10 right-10"></div>
+
+    <header class="relative z-10 w-full pt-8 pb-4 px-4 text-center">
+        <div class="max-w-4xl mx-auto flex flex-col items-center justify-center">
+            
+            <div class="w-16 h-16 mb-2 rounded-full bg-black/70 border-2 border-uganda-yellow flex items-center justify-center shadow-lg shadow-uganda-yellow/20 transform hover:scale-105 transition-transform duration-300 backdrop-blur-md">
+                <span class="text-2xl">🇺🇬</span>
+            </div>
+
+            <!-- Secret Title Trigger: Click 5 times for Secret Admin Passcode Modal -->
+            <h1 id="titleHeader" title="Click 5 times for Secret Admin Access" class="text-4xl md:text-6xl font-black tracking-tight gold-gradient-text uppercase select-none cursor-pointer hover:opacity-90 transition-opacity">
+                Uganda Week
+            </h1>
+            
+            <div class="flex items-center space-x-2 mt-2">
+                <span class="h-0.5 w-8 bg-uganda-red rounded-full"></span>
+                <p class="text-sm md:text-base font-semibold tracking-wider text-uganda-yellow uppercase">
+                    Official Student Entry & Pass System
+                </p>
+                <span class="h-0.5 w-8 bg-uganda-yellow rounded-full"></span>
+            </div>
+            
+            <p class="text-xs text-gray-300 mt-1 max-w-xs sm:max-w-md">
+                Select your Grade, Class, and Class Number to generate your registration code.
+            </p>
+        </div>
+    </header>
+
+    <main class="relative z-10 flex-1 flex items-center justify-center p-4">
+        <div class="w-full max-w-md">
+
+            <!-- MAIN FORM CARD -->
+            <div id="formCard" class="glass-card rounded-3xl p-6 sm:p-8 relative transition-all duration-500 transform">
+                
+                <div class="flex h-2 w-full rounded-t-xl overflow-hidden mb-6">
+                    <div class="w-1/3 bg-black"></div>
+                    <div class="w-1/3 bg-uganda-yellow"></div>
+                    <div class="w-1/3 bg-uganda-red"></div>
+                </div>
+
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="user-check" class="text-uganda-yellow w-5 h-5"></i>
+                        Student Registration
+                    </h2>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-yellow-500/10 text-uganda-yellow border border-yellow-500/20 font-mono">
+                        Device Ready
+                    </span>
+                </div>
+
+                <form id="registrationForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
+                    
+                    <!-- SELECTOR 1: GRADE -->
+                    <div>
+                        <label for="gradeSelect" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <i data-lucide="graduation-cap" class="w-4 h-4 text-uganda-yellow"></i>
+                            Select Grade
+                        </label>
+                        <select id="gradeSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none appearance-none cursor-pointer">
+                            <option value="" disabled selected>-- Choose Grade --</option>
+                            <optgroup label="Kindergarten (K)">
+                                <option value="K1">K1</option>
+                                <option value="K2">K2</option>
+                                <option value="K3">K3</option>
+                            </optgroup>
+                            <optgroup label="Primary (P)">
+                                <option value="P1">P1</option>
+                                <option value="P2">P2</option>
+                                <option value="P3">P3</option>
+                                <option value="P4">P4</option>
+                                <option value="P5">P5</option>
+                                <option value="P6">P6</option>
+                            </optgroup>
+                            <optgroup label="Secondary (S)">
+                                <option value="S1">S1</option>
+                                <option value="S2">S2</option>
+                                <option value="S3">S3</option>
+                                <option value="S4">S4</option>
+                                <option value="S5">S5</option>
+                                <option value="S6">S6</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <!-- SELECTOR 2: CLASS -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <i data-lucide="school" class="w-4 h-4 text-uganda-red"></i>
+                            Select Class
+                        </label>
+                        <div class="grid grid-cols-6 gap-2" id="classButtonGroup"></div>
+                        <input type="hidden" id="classSelect" required>
+                    </div>
+
+                    <!-- SELECTOR 3: CLASS NUMBER (MAX 45) -->
+                    <div>
+                        <label for="classNoSelect" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <i data-lucide="hash" class="w-4 h-4 text-uganda-yellow"></i>
+                            Class No. (1‑45)
+                        </label>
+                        <select id="classNoSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none cursor-pointer">
+                            <option value="" disabled selected>-- Select Number (1 to 45) --</option>
+                        </select>
+                    </div>
+
+                    <!-- DUPLICATE WARNING MESSAGE -->
+                    <div id="duplicateWarning" class="hidden p-3 rounded-xl bg-red-900/30 border border-red-600/50 text-red-300 text-xs">
+                        ⚠️ This student (Grade‑Class‑Number) has already been registered. Duplicate entry is not allowed.
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <button type="submit" id="submitBtn" class="w-full mt-4 bg-gradient-to-r from-uganda-yellow via-yellow-500 to-uganda-red text-black font-extrabold text-base py-4 px-6 rounded-xl shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                        <span>CONFIRM & GENERATE CODE</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div id="ticketCard" class="hidden glass-card rounded-3xl p-6 sm:p-8 relative transition-all duration-500">
+                <div class="text-center space-y-4">
+                    <div class="inline-flex items-center justify-center w-12 h-12 bg-green-500/20 text-green-400 rounded-full mb-1 border border-green-500/30">
+                        <i data-lucide="check-circle" class="w-6 h-6"></i>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-white">Registration Complete!</h3>
+                    <p class="text-xs text-gray-300">Your unique registration code has been generated.</p>
+
+                    <div class="bg-black/80 rounded-2xl p-5 border border-uganda-yellow/40 text-left relative overflow-hidden my-4 shadow-inner">
+                        <div class="flex justify-between items-start border-b border-gray-800 pb-3 mb-4">
+                            <div>
+                                <span class="text-[10px] text-gray-400 uppercase tracking-widest block">EVENT</span>
+                                <span class="text-sm font-bold text-uganda-yellow">UGANDA WEEK 2026</span>
+                            </div>
+                            <span class="text-xs px-2 py-1 bg-uganda-red/20 text-uganda-red rounded font-mono border border-uganda-red/30">VERIFIED</span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 text-center mb-5">
+                            <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
+                                <span class="text-[10px] text-gray-400 block">GRADE</span>
+                                <span id="resGrade" class="text-lg font-bold text-white">‑‑</span>
+                            </div>
+                            <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
+                                <span class="text-[10px] text-gray-400 block">CLASS</span>
+                                <span id="resClass" class="text-lg font-bold text-white">‑‑</span>
+                            </div>
+                            <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
+                                <span class="text-[10px] text-gray-400 block">NO.</span>
+                                <span id="resClassNo" class="text-lg font-bold text-white">‑‑</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-gray-900 via-black to-gray-900 p-4 rounded-xl border border-uganda-yellow/50 text-center">
+                            <span class="text-[10px] text-gray-400 tracking-widest block mb-1 uppercase">Registration Code</span>
+                            <div id="resCode" class="text-4xl sm:text-5xl font-mono font-black text-uganda-yellow tracking-widest py-1">
+                                0001
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between text-[11px] text-gray-400 pt-2 border-t border-gray-800/80">
+                            <span>Status: Synchronized</span>
+                            <span id="resTime" class="font-mono">‑‑:‑‑</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                        <button onclick="copyCode()" class="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-xl border border-gray-700 transition flex items-center justify-center gap-2 text-xs">
+                            <i data-lucide="copy" class="w-4 h-4"></i>
+                            <span id="copyBtnText">Copy Code</span>
+                        </button>
+                        <button onclick="resetFormView()" class="flex-1 bg-transparent hover:bg-white/5 text-gray-300 font-semibold py-3 px-4 rounded-xl border border-gray-700 transition flex items-center justify-center gap-2 text-xs">
+                            <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                            <span>New Entry</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="adminModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300">
+        <div class="glass-card w-full max-w-4xl max-h-[90vh] rounded-3xl flex flex-col border border-uganda-yellow/40 overflow-hidden shadow-2xl">
+            
+            <!-- Modal Header -->
+            <div class="p-5 border-b border-gray-800 flex items-center justify-between bg-black/70">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 rounded-xl bg-uganda-yellow/10 border border-uganda-yellow/30 text-uganda-yellow">
+                        <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            Secret Excel Master Database
+                            <span class="text-xs bg-red-500/20 text-red-400 px-2 py-0.5 rounded border-red-500/30">CONFIDENTIAL</span>
+                        </h3>
+                        <p class="text-xs text-gray-400">View records, export to Excel (.csv)</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminModal()" class="text-gray-400 hover:text-white p-2 rounded-xl hover:bg-gray-800 transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Password Masked View -->
+            <div id="adminAuthView" class="p-8 text-center flex flex-col items-center justify-center my-auto">
+                <div class="w-12 h-12 rounded-full bg-red-500/10 text-uganda-red flex items-center justify-center mb-4 border border-red-500/20">
+                    <i data-lucide="lock" class="w-6 h-6"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2">Admin Authorization Required</h4>
+                <p class="text-xs text-gray-400 mb-6 max-w-sm">Enter the password to access the student database and export to Excel.</p>
+                
+                <form onsubmit="event.preventDefault(); verifyAdminPass();" class="w-full max-w-xs space-y-3">
+                    <div class="relative">
+                        <input type="password" id="adminPassInput" placeholder="Enter Admin Password" autocomplete="current-password" class="w-full bg-black/80 border border-gray-700 text-white rounded-xl p-3 text-center text-sm outline-none focus:border-uganda-yellow pr-10">
+                        <button type="button" onclick="togglePassVisibility()" class="absolute right-3 top-3.5 text-gray-400 hover:text-white">
+                            <i id="eyeIcon" data-lucide="eye" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <button type="submit" class="w-full bg-uganda-yellow text-black font-bold py-3 rounded-xl hover:bg-yellow-400 transition text-sm">
+                        Unlock Excel Database
+                    </button>
+                    <p id="adminPassError" class="text-xs text-red-400 hidden">Incorrect password. Please try again.</p>
+                </form>
+            </div>
+
+            <!-- SINGLE ADMIN DASHBOARD -->
+            <div id="adminDataView" class="hidden flex-1 flex flex-col overflow-hidden p-6 space-y-4">
+                <!-- Search & Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                    <div class="relative flex-1">
+                        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
+                        <input type="text" id="searchInput" oninput="renderTable()" placeholder="Search by Grade, Class, Code..." class="w-full bg-black/60 border border-gray-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white outline-none focus:border-uganda-yellow">
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <button onclick="exportToCSV()" class="bg-green-600 hover:bg-green-500 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center gap-2 shadow-lg shadow-green-600/20">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            Export to Excel (.csv)
+                        </button>
+                        <button onclick="showClearLogVerification()" class="bg-red-950/60 hover:bg-red-900 text-red-300 border border-red-800/50 font-semibold py-2.5 px-3 rounded-xl text-xs transition flex items-center gap-1.5">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            Clear Log
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Clear Log Password Verification Panel -->
+                <div id="clearVerifyPanel" class="hidden bg-red-950/40 p-4 rounded-2xl border border-red-800 space-y-3">
+                    <p class="text-sm text-red-300 font-semibold">⚠️ WARNING: This will delete ALL records and reset code counter. Enter admin password to confirm.</p>
+                    <div class="flex gap-2 items-center">
+                        <input type="password" id="clearPassInput" placeholder="Enter admin password" class="flex-1 bg-black/80 border border-red-800 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-uganda-yellow">
+                        <button onclick="confirmClearLog()" class="bg-red-600 hover:bg-red-500 text-white font-bold px-3 py-2 rounded-xl text-xs">Confirm Delete</button>
+                        <button onclick="hideClearLogVerification()" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-xl text-xs">Cancel</button>
+                    </div>
+                    <p id="clearPassError" class="hidden text-xs text-red-400">Wrong admin password. Deletion cancelled.</p>
+                </div>
+
+                <div class="flex items-center justify-between text-xs text-gray-400 px-1">
+                    <span>Total Records: <strong id="totalCount" class="text-uganda-yellow font-mono">0</strong></span>
+                    <span>Suspicious Spam Entries: <strong id="spamCount" class="text-red-400 font-mono">0</strong></span>
+                    <span class="text-[11px] text-gray-500">Random 4‑5 digit non‑repeating digits code</span>
+                </div>
+
+                <div class="flex-1 overflow-auto border border-gray-800 rounded-2xl bg-black/60">
+                    <table class="w-full text-left text-xs text-gray-300">
+                        <thead class="bg-gray-900/90 text-gray-400 uppercase tracking-wider sticky top-0 border-b border-gray-800 font-mono">
+                            <tr>
+                                <th class="p-3.5">#</th>
+                                <th class="p-3.5">Grade</th>
+                                <th class="p-3.5">Class</th>
+                                <th class="p-3.5">Class No.</th>
+                                <th class="p-3.5">Code</th>
+                                <th class="p-3.5">Timestamp</th>
+                                <th class="p-3.5">Device ID</th>
+                                <th class="p-3.5">Status</th>
+                                <th class="p-3.5">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTableBody" class="divide-y divide-gray-800/60 font-mono">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="relative z-10 w-full py-6 text-center text-xs text-gray-400">
+        <div class="max-w-md mx-auto flex flex-col items-center space-y-2">
+            <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-uganda-yellow animate-pulse"></span>
+                <span>Uganda Week Celebration • Cultural Registration</span>
+            </div>
+            <p class="text-[11px] text-gray-400">
+                Admin: Click "Uganda Week" 5 times or 
+                <button onclick="openAdminModal()" class="text-uganda-yellow underline hover:text-white">open Secret Admin Log</button>.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // --- CONSTANTS & STORAGE KEYS ---
+        const ADMIN_SECRET_PASS = "20UgandaGbCrBd26";
+        const STORAGE_KEY_ENTRIES = 'uganda_week_all_entries_v2';
+        const STORAGE_KEY_DEVICE_ID = 'uganda_week_device_id_v2';
+        const STORAGE_KEY_WEBHOOK = 'uganda_week_webhook_url_v2';
+        const SPAM_THRESHOLD = 8; // More than 8 entries per device = spam flagged
+
+        // 👉 PERMANENT HARD‑CODED WEBHOOK: Replace this value with your deployed Apps‑Script /exec URL
+        const HARDCODED_WEBHOOK_URL = "PASTE_YOUR_DEPLOYED_WEBAPP_URL_HERE";
+
+        let selectedClass = '';
+        let titleClickCount = 0;
+        let titleClickTimer = null;
+
+        // Persistent Device Identifier
+        let deviceId = localStorage.getItem(STORAGE_KEY_DEVICE_ID);
+        if (!deviceId) {
+            deviceId = 'DEV‑' + Math.random().toString(36).substring(2, 9).toUpperCase();
+            localStorage.setItem(STORAGE_KEY_DEVICE_ID, deviceId);
+        }
+
+        // --- NEW: Generate random 4‑5 digit code
+        // 4-digit: CANNOT start with 0
+        // 5-digit: CAN start with 0
+        // All digits inside code are unique (no repeated digits)
+        function generateUniqueNonRepeatingCode() {
+            // random length: 4 or 5 digits
+            const length = Math.random() > 0.5 ? 4 : 5;
+            const digits = [];
+
+            if (length === 4) {
+                // 4位：第一位 1~9，不能0开头
+                const firstDigit = Math.floor(Math.random() * 9) + 1;
+                digits.push(firstDigit);
+                // 剩下3位从剩下数字选，不能重复
+                while(digits.length < 4) {
+                    const rand = Math.floor(Math.random() * 10);
+                    if(!digits.includes(rand)){
+                        digits.push(rand);
+                    }
+                }
+            } else {
+                // 5位：允许0开头，全部数字不重复
+                while(digits.length < 5) {
+                    const rand = Math.floor(Math.random() * 10); // 0‑9
+                    if(!digits.includes(rand)){
+                        digits.push(rand);
+                    }
+                }
+            }
+            return digits.join('');
+        }
+
+        // --- INITIALIZATION ---
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            populateClassNoOptions();
+            renderClassButtons();
+            setupSecretTitleTrigger();
+            loadWebhookUrl();
+
+            // add grade change listener
+            document.getElementById('gradeSelect').addEventListener('change', ()=>{
+                selectedClass = '';
+                document.getElementById('classSelect').value = '';
+                renderClassButtons();
+                hideDuplicateWarning();
+            });
+            document.getElementById('classButtonGroup').addEventListener('click', ()=>{
+                hideDuplicateWarning();
+            });
+            document.getElementById('classNoSelect').addEventListener('change', ()=>{
+                hideDuplicateWarning();
+            });
+        });
+
+        function hideDuplicateWarning(){
+            document.getElementById('duplicateWarning').classList.add('hidden');
+        }
+
+        // CHANGED: max number from 42 to 45
+        function populateClassNoOptions() {
+            const select = document.getElementById('classNoSelect');
+            for (let i = 1; i <= 45; i++) {
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = `No. ${i}`;
+                select.appendChild(opt);
+            }
+        }
+
+        // NEW: get allowed classes based on selected grade
+        function getAllowedClasses(gradeVal){
+            if(!gradeVal) return ['A','B','C','D','E','F'];
+            if(gradeVal.startsWith('K')){
+                // K1‑K3: A B C D only
+                return ['A','B','C','D'];
+            }else if(gradeVal.startsWith('P')){
+                // Primary: A B C D E (no F)
+                return ['A','B','C','D','E'];
+            }else if(gradeVal.startsWith('S')){
+                // Secondary: all A‑F
+                return ['A','B','C','D','E','F'];
+            }
+            return ['A','B','C','D','E','F'];
+        }
+
+        function renderClassButtons() {
+            const container = document.getElementById('classButtonGroup');
+            const grade = document.getElementById('gradeSelect').value;
+            const allowed = getAllowedClasses(grade);
+            container.innerHTML = '';
+
+            allowed.forEach(cls => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `class-btn py-3 rounded-xl border border-gray-700 bg-black/60 font-bold text-sm text-gray-300 hover:border-uganda-yellow transition-all`;
+                btn.innerText = cls;
+                btn.onclick = () => selectClass(cls, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectClass(cls, btnElement) {
+            selectedClass = cls;
+            document.getElementById('classSelect').value = cls;
+            
+            document.querySelectorAll('.class-btn').forEach(b => {
+                b.classList.remove('bg-uganda-yellow', 'text-black', 'border-uganda-yellow', 'shadow-md', 'shadow-yellow-500/20');
+                b.classList.add('bg-black/60', 'text-gray-300', 'border-gray-700');
+            });
+
+            btnElement.classList.remove('bg-black/60', 'text-gray-300', 'border-gray-700');
+            btnElement.classList.add('bg-uganda-yellow', 'text-black', 'border-uganda-yellow', 'shadow-md', 'shadow-yellow-500/20');
+        }
+
+        // Show / hide duplicate warning
+        function showDuplicateWarning(){
+            document.getElementById('duplicateWarning').classList.remove('hidden');
+        }
+
+        // Check if this student combination already exists
+        function isDuplicateStudent(grade, cls, no){
+            const entries = getEntriesFromDatabase();
+            return entries.some(e => e.grade === grade && e.class === cls && e.classNo === Number(no));
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const grade = document.getElementById('gradeSelect').value;
+            const cls = selectedClass;
+            const classNo = document.getElementById('classNoSelect').value;
+
+            if (!grade || !cls || !classNo) {
+                alert('Please fill out all 3 selectors (Grade, Class, Class No.).');
+                return;
+            }
+
+            // Block duplicate student entry
+            if(isDuplicateStudent(grade, cls, classNo)){
+                showDuplicateWarning();
+                return;
+            }
+            hideDuplicateWarning();
+
+            // NEW: generate random 4‑5 digit, internal digits all unique
+            const uniqueCode = generateUniqueNonRepeatingCode();
+            const timestamp = new Date().toLocaleString();
+
+            const newEntry = {
+                id: Date.now(),
+                grade: grade,
+                class: cls,
+                classNo: parseInt(classNo),
+                code: uniqueCode,
+                timestamp: timestamp,
+                deviceId: deviceId,
+                createdAt: Date.now()
+            };
+
+            // 1. Save locally for secret database access & Excel download
+            saveEntryToSecretDatabase(newEntry);
+
+            // 2. Send: permanent hard‑coded webhook FIRST; if user set optional override, use override instead
+            sendToLiveWebhook(newEntry);
+
+            // 3. Render Confirmation Pass Card
+            displayResultCard(newEntry);
+        }
+
+        function saveEntryToSecretDatabase(entry) {
+            let entries = getEntriesFromDatabase();
+            entries.push(entry);
+            localStorage.setItem(STORAGE_KEY_ENTRIES, JSON.stringify(entries));
+        }
+
+        function getEntriesFromDatabase() {
+            const data = localStorage.getItem(STORAGE_KEY_ENTRIES);
+            return data ? JSON.parse(data) : [];
+        }
+
+        // Delete single entry by id
+        function deleteSingleEntry(entryId) {
+            let entries = getEntriesFromDatabase();
+            entries = entries.filter(item => item.id !== entryId);
+            localStorage.setItem(STORAGE_KEY_ENTRIES, JSON.stringify(entries));
+            renderTable();
+        }
+
+        function sendToLiveWebhook(entry) {
+            // priority: user‑saved override > permanent hard‑coded
+            const userOverride = localStorage.getItem(STORAGE_KEY_WEBHOOK);
+            const finalUrl = (userOverride && userOverride.trim() !== "") ? userOverride.trim() : HARDCODED_WEBHOOK_URL;
+            if (!finalUrl || finalUrl === "PASTE_YOUR_DEPLOYED_WEBAPP_URL_HERE") return;
+
+            try {
+                fetch(finalUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(entry)
+                }).catch(err => console.log('Webhook sync notice:', err));
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        function displayResultCard(entry) {
+            document.getElementById('resGrade').innerText = entry.grade;
+            document.getElementById('resClass').innerText = entry.class;
+            document.getElementById('resClassNo').innerText = entry.classNo;
+            document.getElementById('resCode').innerText = entry.code;
+            document.getElementById('resTime').innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+            const formCard = document.getElementById('formCard');
+            const ticketCard = document.getElementById('ticketCard');
+
+            formCard.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                formCard.classList.add('hidden');
+                ticketCard.classList.remove('hidden', 'opacity-0', 'scale-95');
+                ticketCard.classList.add('opacity-100', 'scale-100');
+            }, 300);
+        }
+
+        function resetFormView() {
+            const formCard = document.getElementById('formCard');
+            const ticketCard = document.getElementById('ticketCard');
+
+            ticketCard.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                ticketCard.classList.add('hidden');
+                formCard.classList.remove('hidden', 'opacity-0', 'scale-95');
+                formCard.classList.add('opacity-100', 'scale-100');
+                hideDuplicateWarning();
+            }, 300);
+        }
+
+        function copyCode() {
+            const codeText = document.getElementById('resCode').innerText;
+            const tempInput = document.createElement('input');
+            tempInput.value = codeText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const btnText = document.getElementById('copyBtnText');
+            btnText.innerText = 'Copied!';
+            setTimeout(() => {
+                btnText.innerText = 'Copy Code';
+            }, 2000);
+        }
+
+        // --- SECRET TITLE CLICK TRIGGER & MANDATORY PASSWORD ENFORCEMENT ---
+        function setupSecretTitleTrigger() {
+            const title = document.getElementById('titleHeader');
+            title.addEventListener('click', () => {
+                titleClickCount++;
+                clearTimeout(titleClickTimer);
+                
+                titleClickTimer = setTimeout(() => {
+                    titleClickCount = 0;
+                }, 2000);
+
+                if (titleClickCount >= 5) {
+                    titleClickCount = 0;
+                    openAdminModal();
+                }
+            });
+        }
+
+        function openAdminModal() {
+            const modal = document.getElementById('adminModal');
+            modal.classList.remove('hidden');
+            
+            // ALWAYS reset and demand password every single time modal opens
+            const passInput = document.getElementById('adminPassInput');
+            if (passInput) {
+                passInput.value = '';
+                passInput.type = 'password';
+            }
+            
+            document.getElementById('adminPassError').classList.add('hidden');
+            document.getElementById('adminAuthView').classList.remove('hidden');
+            document.getElementById('adminDataView').classList.add('hidden');
+            hideClearLogVerification();
+        }
+
+        function closeAdminModal() {
+            const passInput = document.getElementById('adminPassInput');
+            if (passInput) {
+                passInput.value = '';
+                passInput.type = 'password';
+            }
+            
+            document.getElementById('adminAuthView').classList.remove('hidden');
+            document.getElementById('adminDataView').classList.add('hidden');
+            document.getElementById('adminModal').classList.add('hidden');
+            hideClearLogVerification();
+        }
+
+        function togglePassVisibility() {
+            const passInput = document.getElementById('adminPassInput');
+            const eyeIcon = document.getElementById('eyeIcon');
+            if (passInput.type === 'password') {
+                passInput.type = 'text';
+                eyeIcon.setAttribute('data-lucide', 'eye-off');
+            } else {
+                passInput.type = 'password';
+                eyeIcon.setAttribute('data-lucide', 'eye');
+            }
+            lucide.createIcons();
+        }
+
+        function verifyAdminPass() {
+            const passInput = document.getElementById('adminPassInput').value;
+            if (passInput === ADMIN_SECRET_PASS) {
+                document.getElementById('adminPassError').classList.add('hidden');
+                showAdminDataView();
+            } else {
+                document.getElementById('adminPassError').classList.remove('hidden');
+            }
+        }
+
+        function showAdminDataView() {
+            document.getElementById('adminAuthView').classList.add('hidden');
+            document.getElementById('adminDataView').classList.remove('hidden');
+            renderTable();
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('adminTableBody');
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const entries = getEntriesFromDatabase();
+
+            // Count entries per device
+            const deviceCountMap = {};
+            entries.forEach(e => {
+                if(!deviceCountMap[e.deviceId]) deviceCountMap[e.deviceId] = 0;
+                deviceCountMap[e.deviceId]++;
+            });
+
+            tbody.innerHTML = '';
+            let spamEntryCounter = 0;
+
+            const filtered = entries.filter(item => {
+                return (
+                    item.grade.toLowerCase().includes(searchVal) ||
+                    item.class.toLowerCase().includes(searchVal) ||
+                    String(item.classNo).includes(searchVal) ||
+                    item.code.toLowerCase().includes(searchVal) ||
+                    item.deviceId.toLowerCase().includes(searchVal)
+                );
+            });
+
+            document.getElementById('totalCount').innerText = filtered.length;
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="9" class="p-8 text-center text-gray-500">
+                            No student records found in local database.
+                        </td>
+                    </tr>
+                `;
+                document.getElementById('spamCount').innerText = 0;
+                return;
+            }
+
+            filtered.forEach((entry, index) => {
+                const deviceTotal = deviceCountMap[entry.deviceId];
+                const isSpam = deviceTotal > SPAM_THRESHOLD;
+                if(isSpam) spamEntryCounter++;
+
+                const statusLabel = isSpam
+                    ? `<span class="px-2 py-0.5 rounded bg-red-600/30 text-red-300 border border-red-500/40">SPAM</span>`
+                    : `<span class="px-2 py-0.5 rounded bg-green-600/20 text-green-300 border border-green-500/30">OK</span>`;
+
+                const tr = document.createElement('tr');
+                tr.className = isSpam ? 'hover:bg-red-900/20 transition' : 'hover:bg-white/5 transition';
+                tr.innerHTML = `
+                    <td class="p-3.5 text-gray-500">${index + 1}</td>
+                    <td class="p-3.5 font-bold text-uganda-yellow">${entry.grade}</td>
+                    <td class="p-3.5 text-white">${entry.class}</td>
+                    <td class="p-3.5 text-white">${entry.classNo}</td>
+                    <td class="p-3.5 font-mono text-uganda-yellow font-bold">${entry.code}</td>
+                    <td class="p-3.5 text-gray-400 text-[11px]">${entry.timestamp}</td>
+                    <td class="p-3.5 text-gray-500 text-[10px] font-mono">${entry.deviceId} (${deviceTotal})</td>
+                    <td class="p-3.5">${statusLabel}</td>
+                    <td class="p-3.5">
+                        <button onclick="deleteSingleEntry(${entry.id})" class="px-2 py-1 rounded bg-red-800 hover:bg-red-700 text-white text-[10px]">
+                            Delete
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('spamCount').innerText = spamEntryCounter;
+        }
+
+        // --- EXPORT TO EXCEL CSV (FIXED: Class & Class No now included) ---
+        function exportToCSV() {
+            const entries = getEntriesFromDatabase();
+            if (entries.length === 0) {
+                alert('No entries available to export.');
+                return;
+            }
+
+            // Count device occurrences for spam flag
+            const deviceCountMap = {};
+            entries.forEach(e => {
+                if(!deviceCountMap[e.deviceId]) deviceCountMap[e.deviceId] = 0;
+                deviceCountMap[e.deviceId]++;
+            });
+
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "Sequence,Grade,Class,ClassNumber,Code,Timestamp,DeviceID,DeviceTotalEntries,SpamFlag\n";
+
+            entries.forEach((row, idx) => {
+                const devTotal = deviceCountMap[row.deviceId];
+                const spamFlag = devTotal > SPAM_THRESHOLD ? "SPAM" : "OK";
+                const line = [
+                    idx + 1,
+                    `"${row.grade}"`,
+                    `"${row.class}"`,
+                    row.classNo,
+                    `"${row.code}"`,
+                    `"${row.timestamp}"`,
+                    `"${row.deviceId}"`,
+                    devTotal,
+                    `"${spamFlag}"`
+                ].join(",");
+                csvContent += line + "\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `Uganda_Week_Master_Excel_${new Date().toISOString().slice(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function showClearLogVerification(){
+            document.getElementById('clearVerifyPanel').classList.remove('hidden');
+        }
+        function hideClearLogVerification(){
+            document.getElementById('clearVerifyPanel').classList.add('hidden');
+            document.getElementById('clearPassError').classList.add('hidden');
+            document.getElementById('clearPassInput').value = '';
+        }
+        function confirmClearLog(){
+            const inputPass = document.getElementById('clearPassInput').value;
+            if(inputPass === ADMIN_SECRET_PASS){
+                localStorage.removeItem(STORAGE_KEY_ENTRIES);
+                renderTable();
+                hideClearLogVerification();
+                alert("All records cleared.");
+            }else{
+                document.getElementById('clearPassError').classList.remove('hidden');
+            }
+        }
+
+        function saveWebhookUrl(){
+            const url = document.getElementById('webhookUrlInput').value.trim();
+            localStorage.setItem(STORAGE_KEY_WEBHOOK, url);
+            alert("Webhook override saved.");
+        }
+        function loadWebhookUrl(){
+            const saved = localStorage.getItem(STORAGE_KEY_WEBHOOK) || "";
+            // no UI element to populate anymore
+        }
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>
