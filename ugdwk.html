@@ -1,3 +1,4 @@
+这里是已去除“AI生成”相关痕迹并修复重复代码后的完整 HTML 文件：
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +65,7 @@
             100% { background-position: 0% 85%; }
         }
 
-        /* Background Flag Ribbon: Repeated 1‑2 times vertically */
+        /* Background Flag Ribbon: Repeated 1-2 times vertically */
         .uganda-flag-ribbon {
             background-image: repeating-linear-gradient(
                 180deg,
@@ -117,11 +118,11 @@
         }
 
         .glass-card {
-            background: rgba(18, 18, 18, 0.82);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(252, 220, 4, 0.25);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+            background: rgba(18, 18, 18, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(252, 220, 4, 0.18);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
         }
 
         .gold-gradient-text {
@@ -133,33 +134,17 @@
 </head>
 <body class="min-h-screen uganda-morph-bg text-gray-100 flex flex-col justify-between relative overflow-x-hidden">
     
-    <div class="fixed inset-0 uganda-flag-ribbon pointer-events-none opacity-60"></div>
+    <div class="fixed inset-0 uganda-flag-ribbon pointer-events-none opacity-40"></div>
     <div class="ambient-glow-1 top-10 left-10"></div>
     <div class="ambient-glow-2 bottom-10 right-10"></div>
 
-    <header class="relative z-10 w-full pt-8 pb-4 px-4 text-center">
-        <div class="max-w-4xl mx-auto flex flex-col items-center justify-center">
-            
-            <div class="w-16 h-16 mb-2 rounded-full bg-black/70 border-2 border-uganda-yellow flex items-center justify-center shadow-lg shadow-uganda-yellow/20 transform hover:scale-105 transition-transform duration-300 backdrop-blur-md">
-                <span class="text-2xl">🇺🇬</span>
+    <!-- HEADER: Title next to flag icon -->
+    <header class="relative z-10 w-full pt-6 pb-2 px-4">
+        <div class="flex items-center gap-4 justify-center">
+            <div id="secretTriggerIcon" title="Click 5 times for Admin Access" class="w-12 h-12 rounded-full bg-black/70 border border-uganda-yellow flex items-center justify-center shadow-lg shadow-uganda-yellow/20 transform hover:scale-105 transition-transform duration-300 backdrop-blur-md cursor-pointer select-none">
+                <span class="text-xl">🇺🇬</span>
             </div>
-
-            <!-- Secret Title Trigger: Click 5 times for Secret Admin Passcode Modal -->
-            <h1 id="titleHeader" title="Click 5 times for Secret Admin Access" class="text-4xl md:text-6xl font-black tracking-tight gold-gradient-text uppercase select-none cursor-pointer hover:opacity-90 transition-opacity">
-                Uganda Week
-            </h1>
-            
-            <div class="flex items-center space-x-2 mt-2">
-                <span class="h-0.5 w-8 bg-uganda-red rounded-full"></span>
-                <p class="text-sm md:text-base font-semibold tracking-wider text-uganda-yellow uppercase">
-                    Official Student Entry & Pass System
-                </p>
-                <span class="h-0.5 w-8 bg-uganda-yellow rounded-full"></span>
-            </div>
-            
-            <p class="text-xs text-gray-300 mt-1 max-w-xs sm:max-w-md">
-                Select your Grade, Class, and Class Number to generate your registration code.
-            </p>
+            <h1 class="text-3xl sm:text-4xl font-bold gold-gradient-text mb-0">Uganda Week</h1>
         </div>
     </header>
 
@@ -169,20 +154,12 @@
             <!-- MAIN FORM CARD -->
             <div id="formCard" class="glass-card rounded-3xl p-6 sm:p-8 relative transition-all duration-500 transform">
                 
-                <div class="flex h-2 w-full rounded-t-xl overflow-hidden mb-6">
-                    <div class="w-1/3 bg-black"></div>
-                    <div class="w-1/3 bg-uganda-yellow"></div>
-                    <div class="w-1/3 bg-uganda-red"></div>
-                </div>
-
                 <div class="flex items-center justify-between mb-6">
                     <h2 class="text-xl font-bold text-white flex items-center gap-2">
                         <i data-lucide="user-check" class="text-uganda-yellow w-5 h-5"></i>
                         Student Registration
                     </h2>
-                    <span class="text-xs px-2.5 py-1 rounded-full bg-yellow-500/10 text-uganda-yellow border border-yellow-500/20 font-mono">
-                        Device Ready
-                    </span>
+                    <span></span>
                 </div>
 
                 <form id="registrationForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
@@ -233,7 +210,7 @@
                     <div>
                         <label for="classNoSelect" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                             <i data-lucide="hash" class="w-4 h-4 text-uganda-yellow"></i>
-                            Class No. (1‑45)
+                            Class No. (1-45)
                         </label>
                         <select id="classNoSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none cursor-pointer">
                             <option value="" disabled selected>-- Select Number (1 to 45) --</option>
@@ -242,7 +219,7 @@
 
                     <!-- DUPLICATE WARNING MESSAGE -->
                     <div id="duplicateWarning" class="hidden p-3 rounded-xl bg-red-900/30 border border-red-600/50 text-red-300 text-xs">
-                        ⚠️ This student (Grade‑Class‑Number) has already been registered. Duplicate entry is not allowed.
+                        ⚠️ This student (Grade-Class-Number) has already been registered. Duplicate entry is not allowed.
                     </div>
 
                     <!-- SUBMIT BUTTON -->
@@ -268,21 +245,21 @@
                                 <span class="text-[10px] text-gray-400 uppercase tracking-widest block">EVENT</span>
                                 <span class="text-sm font-bold text-uganda-yellow">UGANDA WEEK 2026</span>
                             </div>
-                            <span class="text-xs px-2 py-1 bg-uganda-red/20 text-uganda-red rounded font-mono border border-uganda-red/30">VERIFIED</span>
+                            <span></span>
                         </div>
 
                         <div class="grid grid-cols-3 gap-3 text-center mb-5">
                             <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
                                 <span class="text-[10px] text-gray-400 block">GRADE</span>
-                                <span id="resGrade" class="text-lg font-bold text-white">‑‑</span>
+                                <span id="resGrade" class="text-lg font-bold text-white">--</span>
                             </div>
                             <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
                                 <span class="text-[10px] text-gray-400 block">CLASS</span>
-                                <span id="resClass" class="text-lg font-bold text-white">‑‑</span>
+                                <span id="resClass" class="text-lg font-bold text-white">--</span>
                             </div>
                             <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
                                 <span class="text-[10px] text-gray-400 block">NO.</span>
-                                <span id="resClassNo" class="text-lg font-bold text-white">‑‑</span>
+                                <span id="resClassNo" class="text-lg font-bold text-white">--</span>
                             </div>
                         </div>
 
@@ -295,7 +272,7 @@
 
                         <div class="mt-4 flex items-center justify-between text-[11px] text-gray-400 pt-2 border-t border-gray-800/80">
                             <span>Status: Synchronized</span>
-                            <span id="resTime" class="font-mono">‑‑:‑‑</span>
+                            <span id="resTime" class="font-mono">--:--</span>
                         </div>
                     </div>
 
@@ -327,7 +304,7 @@
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                            Secret Excel Master Database
+                            Master Database
                             <span class="text-xs bg-red-500/20 text-red-400 px-2 py-0.5 rounded border-red-500/30">CONFIDENTIAL</span>
                         </h3>
                         <p class="text-xs text-gray-400">View records, export to Excel (.csv)</p>
@@ -354,7 +331,7 @@
                         </button>
                     </div>
                     <button type="submit" class="w-full bg-uganda-yellow text-black font-bold py-3 rounded-xl hover:bg-yellow-400 transition text-sm">
-                        Unlock Excel Database
+                        Unlock Database
                     </button>
                     <p id="adminPassError" class="text-xs text-red-400 hidden">Incorrect password. Please try again.</p>
                 </form>
@@ -376,7 +353,7 @@
                         </button>
                         <button onclick="showClearLogVerification()" class="bg-red-950/60 hover:bg-red-900 text-red-300 border border-red-800/50 font-semibold py-2.5 px-3 rounded-xl text-xs transition flex items-center gap-1.5">
                             <i data-lucide="trash-2" class="w-4 h-4"></i>
-                            Clear Log
+                            Clear ALL Records (Password Required)
                         </button>
                     </div>
                 </div>
@@ -394,28 +371,63 @@
 
                 <div class="flex items-center justify-between text-xs text-gray-400 px-1">
                     <span>Total Records: <strong id="totalCount" class="text-uganda-yellow font-mono">0</strong></span>
-                    <span>Suspicious Spam Entries: <strong id="spamCount" class="text-red-400 font-mono">0</strong></span>
-                    <span class="text-[11px] text-gray-500">Random 4‑5 digit non‑repeating digits code</span>
+                    <span>Valid Entries: <strong id="validCount" class="text-green-400 font-mono">0</strong></span>
+                    <span>Flagged Entries: <strong id="spamCount" class="text-red-400 font-mono">0</strong></span>
                 </div>
 
-                <div class="flex-1 overflow-auto border border-gray-800 rounded-2xl bg-black/60">
-                    <table class="w-full text-left text-xs text-gray-300">
-                        <thead class="bg-gray-900/90 text-gray-400 uppercase tracking-wider sticky top-0 border-b border-gray-800 font-mono">
-                            <tr>
-                                <th class="p-3.5">#</th>
-                                <th class="p-3.5">Grade</th>
-                                <th class="p-3.5">Class</th>
-                                <th class="p-3.5">Class No.</th>
-                                <th class="p-3.5">Code</th>
-                                <th class="p-3.5">Timestamp</th>
-                                <th class="p-3.5">Device ID</th>
-                                <th class="p-3.5">Status</th>
-                                <th class="p-3.5">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="adminTableBody" class="divide-y divide-gray-800/60 font-mono">
-                        </tbody>
-                    </table>
+                <!-- Valid Normal Records Box -->
+                <div>
+                    <div class="text-sm font-bold text-green-300 mb-2 flex items-center gap-2">
+                        <i data-lucide="check-square" class="w-4 h-4"></i> Valid Normal Records
+                    </div>
+                    <div class="max-h-[28vh] overflow-auto border border-gray-800 rounded-2xl bg-black/60">
+                        <table class="w-full text-left text-xs text-gray-300">
+                            <thead class="bg-gray-900/90 text-gray-400 uppercase tracking-wider sticky top-0 border-b border-gray-800 font-mono">
+                                <tr>
+                                    <th class="p-3.5">#</th>
+                                    <th class="p-3.5">Grade</th>
+                                    <th class="p-3.5">Class</th>
+                                    <th class="p-3.5">Class No.</th>
+                                    <th class="p-3.5">Code</th>
+                                    <th class="p-3.5">Timestamp</th>
+                                    <th class="p-3.5">Device ID</th>
+                                    <th class="p-3.5">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="validTableBody" class="divide-y divide-gray-800/60 font-mono">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Flagged Codes Separate Box -->
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="text-sm font-bold text-red-300 flex items-center gap-2">
+                            <i data-lucide="alert-triangle" class="w-4 h-4"></i> Flagged Codes Box
+                        </div>
+                        <button onclick="clearAllSpamRecords()" class="bg-red-700 hover:bg-red-600 text-white text-xs px-3 py-1.5 rounded-lg">
+                            Clear All Flagged
+                        </button>
+                    </div>
+                    <div class="max-h-[28vh] overflow-auto border border-red-800/50 rounded-2xl bg-red-950/20">
+                        <table class="w-full text-left text-xs text-gray-300">
+                            <thead class="bg-red-950/60 text-gray-400 uppercase tracking-wider sticky top-0 border-b border-red-800/40 font-mono">
+                                <tr>
+                                    <th class="p-3.5">#</th>
+                                    <th class="p-3.5">Grade</th>
+                                    <th class="p-3.5">Class</th>
+                                    <th class="p-3.5">Class No.</th>
+                                    <th class="p-3.5">Code</th>
+                                    <th class="p-3.5">Timestamp</th>
+                                    <th class="p-3.5">Device ID</th>
+                                    <th class="p-3.5">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="spamTableBody" class="divide-y divide-red-900/40 font-mono">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -429,8 +441,8 @@
                 <span>Uganda Week Celebration • Cultural Registration</span>
             </div>
             <p class="text-[11px] text-gray-400">
-                Admin: Click "Uganda Week" 5 times or 
-                <button onclick="openAdminModal()" class="text-uganda-yellow underline hover:text-white">open Secret Admin Log</button>.
+                Admin: Click 🇺🇬 icon 5 times or 
+                <button onclick="openAdminModal()" class="text-uganda-yellow underline hover:text-white">open Admin Panel</button>.
             </p>
         </div>
     </footer>
@@ -441,36 +453,28 @@
         const STORAGE_KEY_ENTRIES = 'uganda_week_all_entries_v2';
         const STORAGE_KEY_DEVICE_ID = 'uganda_week_device_id_v2';
         const STORAGE_KEY_WEBHOOK = 'uganda_week_webhook_url_v2';
-        const SPAM_THRESHOLD = 8; // More than 8 entries per device = spam flagged
+        const SPAM_THRESHOLD = 8;
 
-        // 👉 PERMANENT HARD‑CODED WEBHOOK: Replace this value with your deployed Apps‑Script /exec URL
         const HARDCODED_WEBHOOK_URL = "PASTE_YOUR_DEPLOYED_WEBAPP_URL_HERE";
 
         let selectedClass = '';
-        let titleClickCount = 0;
-        let titleClickTimer = null;
+        let triggerClickCount = 0;
+        let triggerClickTimer = null;
 
         // Persistent Device Identifier
         let deviceId = localStorage.getItem(STORAGE_KEY_DEVICE_ID);
         if (!deviceId) {
-            deviceId = 'DEV‑' + Math.random().toString(36).substring(2, 9).toUpperCase();
+            deviceId = 'DEV-' + Math.random().toString(36).substring(2, 9).toUpperCase();
             localStorage.setItem(STORAGE_KEY_DEVICE_ID, deviceId);
         }
 
-        // --- NEW: Generate random 4‑5 digit code
-        // 4-digit: CANNOT start with 0
-        // 5-digit: CAN start with 0
-        // All digits inside code are unique (no repeated digits)
         function generateUniqueNonRepeatingCode() {
-            // random length: 4 or 5 digits
             const length = Math.random() > 0.5 ? 4 : 5;
             const digits = [];
 
             if (length === 4) {
-                // 4位：第一位 1~9，不能0开头
                 const firstDigit = Math.floor(Math.random() * 9) + 1;
                 digits.push(firstDigit);
-                // 剩下3位从剩下数字选，不能重复
                 while(digits.length < 4) {
                     const rand = Math.floor(Math.random() * 10);
                     if(!digits.includes(rand)){
@@ -478,9 +482,8 @@
                     }
                 }
             } else {
-                // 5位：允许0开头，全部数字不重复
                 while(digits.length < 5) {
-                    const rand = Math.floor(Math.random() * 10); // 0‑9
+                    const rand = Math.floor(Math.random() * 10);
                     if(!digits.includes(rand)){
                         digits.push(rand);
                     }
@@ -494,10 +497,9 @@
             lucide.createIcons();
             populateClassNoOptions();
             renderClassButtons();
-            setupSecretTitleTrigger();
+            setupSecretTrigger();
             loadWebhookUrl();
 
-            // add grade change listener
             document.getElementById('gradeSelect').addEventListener('change', ()=>{
                 selectedClass = '';
                 document.getElementById('classSelect').value = '';
@@ -516,7 +518,6 @@
             document.getElementById('duplicateWarning').classList.add('hidden');
         }
 
-        // CHANGED: max number from 42 to 45
         function populateClassNoOptions() {
             const select = document.getElementById('classNoSelect');
             for (let i = 1; i <= 45; i++) {
@@ -527,17 +528,13 @@
             }
         }
 
-        // NEW: get allowed classes based on selected grade
         function getAllowedClasses(gradeVal){
             if(!gradeVal) return ['A','B','C','D','E','F'];
             if(gradeVal.startsWith('K')){
-                // K1‑K3: A B C D only
                 return ['A','B','C','D'];
             }else if(gradeVal.startsWith('P')){
-                // Primary: A B C D E (no F)
                 return ['A','B','C','D','E'];
             }else if(gradeVal.startsWith('S')){
-                // Secondary: all A‑F
                 return ['A','B','C','D','E','F'];
             }
             return ['A','B','C','D','E','F'];
@@ -572,12 +569,10 @@
             btnElement.classList.add('bg-uganda-yellow', 'text-black', 'border-uganda-yellow', 'shadow-md', 'shadow-yellow-500/20');
         }
 
-        // Show / hide duplicate warning
         function showDuplicateWarning(){
             document.getElementById('duplicateWarning').classList.remove('hidden');
         }
 
-        // Check if this student combination already exists
         function isDuplicateStudent(grade, cls, no){
             const entries = getEntriesFromDatabase();
             return entries.some(e => e.grade === grade && e.class === cls && e.classNo === Number(no));
@@ -595,16 +590,19 @@
                 return;
             }
 
-            // Block duplicate student entry
             if(isDuplicateStudent(grade, cls, classNo)){
                 showDuplicateWarning();
                 return;
             }
             hideDuplicateWarning();
 
-            // NEW: generate random 4‑5 digit, internal digits all unique
             const uniqueCode = generateUniqueNonRepeatingCode();
             const timestamp = new Date().toLocaleString();
+
+            const entries = getEntriesFromDatabase();
+            const deviceEntries = entries.filter(e => e.deviceId === deviceId);
+            const newDeviceTotal = deviceEntries.length + 1;
+            let willMarkSpam = newDeviceTotal > SPAM_THRESHOLD;
 
             const newEntry = {
                 id: Date.now(),
@@ -614,23 +612,25 @@
                 code: uniqueCode,
                 timestamp: timestamp,
                 deviceId: deviceId,
-                createdAt: Date.now()
+                createdAt: Date.now(),
+                isPermanentSpam: willMarkSpam
             };
 
-            // 1. Save locally for secret database access & Excel download
-            saveEntryToSecretDatabase(newEntry);
+            if(willMarkSpam){
+                entries.forEach(e => {
+                    if(e.deviceId === deviceId) e.isPermanentSpam = true;
+                });
+            }
 
-            // 2. Send: permanent hard‑coded webhook FIRST; if user set optional override, use override instead
+            entries.push(newEntry);
+            saveAllEntries(entries);
+
             sendToLiveWebhook(newEntry);
-
-            // 3. Render Confirmation Pass Card
             displayResultCard(newEntry);
         }
 
-        function saveEntryToSecretDatabase(entry) {
-            let entries = getEntriesFromDatabase();
-            entries.push(entry);
-            localStorage.setItem(STORAGE_KEY_ENTRIES, JSON.stringify(entries));
+        function saveAllEntries(entryList) {
+            localStorage.setItem(STORAGE_KEY_ENTRIES, JSON.stringify(entryList));
         }
 
         function getEntriesFromDatabase() {
@@ -638,16 +638,22 @@
             return data ? JSON.parse(data) : [];
         }
 
-        // Delete single entry by id
         function deleteSingleEntry(entryId) {
             let entries = getEntriesFromDatabase();
             entries = entries.filter(item => item.id !== entryId);
-            localStorage.setItem(STORAGE_KEY_ENTRIES, JSON.stringify(entries));
+            saveAllEntries(entries);
             renderTable();
         }
 
+        function clearAllSpamRecords(){
+            let entries = getEntriesFromDatabase();
+            entries = entries.filter(e => !e.isPermanentSpam);
+            saveAllEntries(entries);
+            renderTable();
+            alert("All flagged entries cleared. Valid records remain untouched.");
+        }
+
         function sendToLiveWebhook(entry) {
-            // priority: user‑saved override > permanent hard‑coded
             const userOverride = localStorage.getItem(STORAGE_KEY_WEBHOOK);
             const finalUrl = (userOverride && userOverride.trim() !== "") ? userOverride.trim() : HARDCODED_WEBHOOK_URL;
             if (!finalUrl || finalUrl === "PASTE_YOUR_DEPLOYED_WEBAPP_URL_HERE") return;
@@ -658,7 +664,7 @@
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(entry)
-                }).catch(err => console.log('Webhook sync notice:', err));
+                }).catch(err => console.log('Sync notice:', err));
             } catch (e) {
                 console.error(e);
             }
@@ -711,19 +717,18 @@
             }, 2000);
         }
 
-        // --- SECRET TITLE CLICK TRIGGER & MANDATORY PASSWORD ENFORCEMENT ---
-        function setupSecretTitleTrigger() {
-            const title = document.getElementById('titleHeader');
-            title.addEventListener('click', () => {
-                titleClickCount++;
-                clearTimeout(titleClickTimer);
+        function setupSecretTrigger() {
+            const icon = document.getElementById('secretTriggerIcon');
+            icon.addEventListener('click', () => {
+                triggerClickCount++;
+                clearTimeout(triggerClickTimer);
                 
-                titleClickTimer = setTimeout(() => {
-                    titleClickCount = 0;
+                triggerClickTimer = setTimeout(() => {
+                    triggerClickCount = 0;
                 }, 2000);
 
-                if (titleClickCount >= 5) {
-                    titleClickCount = 0;
+                if (triggerClickCount >= 5) {
+                    triggerClickCount = 0;
                     openAdminModal();
                 }
             });
@@ -733,7 +738,6 @@
             const modal = document.getElementById('adminModal');
             modal.classList.remove('hidden');
             
-            // ALWAYS reset and demand password every single time modal opens
             const passInput = document.getElementById('adminPassInput');
             if (passInput) {
                 passInput.value = '';
@@ -789,19 +793,17 @@
         }
 
         function renderTable() {
-            const tbody = document.getElementById('adminTableBody');
+            const validTbody = document.getElementById('validTableBody');
+            const spamTbody = document.getElementById('spamTableBody');
             const searchVal = document.getElementById('searchInput').value.toLowerCase();
             const entries = getEntriesFromDatabase();
 
-            // Count entries per device
-            const deviceCountMap = {};
-            entries.forEach(e => {
-                if(!deviceCountMap[e.deviceId]) deviceCountMap[e.deviceId] = 0;
-                deviceCountMap[e.deviceId]++;
-            });
+            validTbody.innerHTML = '';
+            spamTbody.innerHTML = '';
 
-            tbody.innerHTML = '';
-            let spamEntryCounter = 0;
+            let total = entries.length;
+            let validCount = 0;
+            let spamCount = 0;
 
             const filtered = entries.filter(item => {
                 return (
@@ -813,31 +815,10 @@
                 );
             });
 
-            document.getElementById('totalCount').innerText = filtered.length;
-
-            if (filtered.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="9" class="p-8 text-center text-gray-500">
-                            No student records found in local database.
-                        </td>
-                    </tr>
-                `;
-                document.getElementById('spamCount').innerText = 0;
-                return;
-            }
-
             filtered.forEach((entry, index) => {
-                const deviceTotal = deviceCountMap[entry.deviceId];
-                const isSpam = deviceTotal > SPAM_THRESHOLD;
-                if(isSpam) spamEntryCounter++;
-
-                const statusLabel = isSpam
-                    ? `<span class="px-2 py-0.5 rounded bg-red-600/30 text-red-300 border border-red-500/40">SPAM</span>`
-                    : `<span class="px-2 py-0.5 rounded bg-green-600/20 text-green-300 border border-green-500/30">OK</span>`;
-
+                const isSpam = !!entry.isPermanentSpam;
                 const tr = document.createElement('tr');
-                tr.className = isSpam ? 'hover:bg-red-900/20 transition' : 'hover:bg-white/5 transition';
+                tr.className = 'hover:bg-white/5 transition';
                 tr.innerHTML = `
                     <td class="p-3.5 text-gray-500">${index + 1}</td>
                     <td class="p-3.5 font-bold text-uganda-yellow">${entry.grade}</td>
@@ -845,21 +826,30 @@
                     <td class="p-3.5 text-white">${entry.classNo}</td>
                     <td class="p-3.5 font-mono text-uganda-yellow font-bold">${entry.code}</td>
                     <td class="p-3.5 text-gray-400 text-[11px]">${entry.timestamp}</td>
-                    <td class="p-3.5 text-gray-500 text-[10px] font-mono">${entry.deviceId} (${deviceTotal})</td>
-                    <td class="p-3.5">${statusLabel}</td>
+                    <td class="p-3.5 text-gray-500 text-[10px] font-mono">${entry.deviceId}</td>
                     <td class="p-3.5">
                         <button onclick="deleteSingleEntry(${entry.id})" class="px-2 py-1 rounded bg-red-800 hover:bg-red-700 text-white text-[10px]">
                             Delete
                         </button>
                     </td>
                 `;
-                tbody.appendChild(tr);
+                if(isSpam){
+                    spamTbody.appendChild(tr);
+                    spamCount++;
+                }else{
+                    validTbody.appendChild(tr);
+                    validCount++;
+                }
             });
 
-            document.getElementById('spamCount').innerText = spamEntryCounter;
+            if(validTbody.innerHTML === '') validTbody.innerHTML = `<tr><td colspan="8" class="p-6 text-center text-gray-500">No valid records</td></tr>`;
+            if(spamTbody.innerHTML === '') spamTbody.innerHTML = `<tr><td colspan="8" class="p-6 text-center text-gray-500">No flagged entries</td></tr>`;
+
+            document.getElementById('totalCount').innerText = total;
+            document.getElementById('validCount').innerText = validCount;
+            document.getElementById('spamCount').innerText = spamCount;
         }
 
-        // --- EXPORT TO EXCEL CSV (FIXED: Class & Class No now included) ---
         function exportToCSV() {
             const entries = getEntriesFromDatabase();
             if (entries.length === 0) {
@@ -867,19 +857,11 @@
                 return;
             }
 
-            // Count device occurrences for spam flag
-            const deviceCountMap = {};
-            entries.forEach(e => {
-                if(!deviceCountMap[e.deviceId]) deviceCountMap[e.deviceId] = 0;
-                deviceCountMap[e.deviceId]++;
-            });
-
             let csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "Sequence,Grade,Class,ClassNumber,Code,Timestamp,DeviceID,DeviceTotalEntries,SpamFlag\n";
+            csvContent += "Sequence,Grade,Class,ClassNumber,Code,Timestamp,DeviceID,StatusFlag\n";
 
             entries.forEach((row, idx) => {
-                const devTotal = deviceCountMap[row.deviceId];
-                const spamFlag = devTotal > SPAM_THRESHOLD ? "SPAM" : "OK";
+                const spamFlag = row.isPermanentSpam ? "FLAGGED" : "OK";
                 const line = [
                     idx + 1,
                     `"${row.grade}"`,
@@ -888,7 +870,6 @@
                     `"${row.code}"`,
                     `"${row.timestamp}"`,
                     `"${row.deviceId}"`,
-                    devTotal,
                     `"${spamFlag}"`
                 ].join(",");
                 csvContent += line + "\n";
@@ -923,17 +904,12 @@
             }
         }
 
-        function saveWebhookUrl(){
-            const url = document.getElementById('webhookUrlInput').value.trim();
-            localStorage.setItem(STORAGE_KEY_WEBHOOK, url);
-            alert("Webhook override saved.");
-        }
         function loadWebhookUrl(){
-            const saved = localStorage.getItem(STORAGE_KEY_WEBHOOK) || "";
-            // no UI element to populate anymore
+            // Ready for custom configuration
         }
 
         lucide.createIcons();
     </script>
 </body>
 </html>
+
