@@ -316,7 +316,7 @@
         <div class="bg-black border border-gray-800 w-full max-w-4xl max-h-[90vh] rounded-3xl flex flex-col shadow-2xl overflow-hidden">
             
             <!-- Modal Header -->
-            <div class="p-5 border-b border-gray-800 flex items-center justify-between bg-black">
+            <div class="p-5 border-b border-gray-800 flex items-center justify-between bg-black flex-shrink-0">
                 <div class="flex items-center gap-3">
                     <div class="p-2 rounded-xl bg-uganda-yellow/10 border border-uganda-yellow/30 text-uganda-yellow">
                         <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
@@ -356,8 +356,8 @@
                 </form>
             </div>
 
-            <!-- SINGLE ADMIN DASHBOARD -->
-            <div id="adminDataView" class="hidden flex-1 flex flex-col overflow-hidden p-6 space-y-4 bg-black">
+            <!-- SINGLE ADMIN DASHBOARD (SCROLLABLE) -->
+            <div id="adminDataView" class="hidden flex-1 flex flex-col overflow-y-auto p-6 space-y-4 bg-black">
                 
                 <!-- WEBHOOK CONFIGURATION PANEL FOR CROSS-DEVICE LOGGING -->
                 <div class="bg-black p-4 rounded-2xl border border-blue-900/40 space-y-3">
@@ -851,7 +851,7 @@
                 passInput.type = 'password';
             }
             
-            document.getElementById('adminAuthView').classList.remove('hidden');
+            document.getElementById('adminAuthView').classList.add('hidden');
             document.getElementById('adminDataView').classList.add('hidden');
             document.getElementById('adminModal').classList.add('hidden');
             hideClearLogVerification();
@@ -994,7 +994,7 @@
                 hideClearLogVerification();
                 alert("All records cleared.");
             }else{
-                document.getElementById('clearPassError').classList.remove('hidden');
+                document.getElementById('clearPassError').classList.add('hidden');
             }
         }
 
@@ -1002,3 +1002,4 @@
     </script>
 </body>
 </html>
+
