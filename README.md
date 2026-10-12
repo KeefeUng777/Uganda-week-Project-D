@@ -511,7 +511,7 @@
         const STORAGE_KEY_WEBHOOK = 'uganda_week_webhook_url_v2';
         const SPAM_THRESHOLD = 8;
 
-        const HARDCODED_WEBHOOK_URL = "https://script.google.com/u/1/home/projects/1bcRa4_ZhA4ELIvUqVqEfJV-Aq83VRgXvFkb6wqF4I0_AiEFPLgaTY9n-/edit";
+        const HARDCODED_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbx2I-TBIZnku-0iW-_fMJ4mdXRwWgEshlt0KcsNzhPoHypJ63WeBwPBwgK8wHenrCrp/exec";
 
         let triggerClickCount = 0;
         let triggerClickTimer = null;
@@ -555,6 +555,7 @@
             populateTimeOptions();
             setupSecretTrigger();
             loadWebhookUrl();
+            fetchRemoteEntries(); // Auto sync on load if cloud is configured
 
             document.getElementById('gradeSelect').addEventListener('change', hideDuplicateWarning);
             document.getElementById('classSelect').addEventListener('change', hideDuplicateWarning);
@@ -754,24 +755,17 @@
 
         function fetchRemoteEntries() {
             const finalUrl = localStorage.getItem(STORAGE_KEY_WEBHOOK) || HARDCODED_WEBHOOK_URL;
-            if (!finalUrl || finalUrl.trim() === "") {
-                alert("Please save a Cloud Sync Webhook URL first in the admin panel.");
-                return;
-            }
+            if (!finalUrl || finalUrl.trim() === "") return;
 
             fetch(finalUrl + '?action=getRecords')
                 .then(res => res.json())
                 .then(remoteEntries => {
-                    if (Array.isArray(remoteEntries)) {
+                    if (Array.isArray(remoteEntries) && remoteEntries.length > 0) {
                         saveAllEntries(remoteEntries);
                         renderTable();
-                        alert("Database synced with Cloud successfully! Total records: " + remoteEntries.length);
                     }
                 })
-                .catch(err => {
-                    console.log('Fetching note:', err);
-                    alert("Triggered sync request. Check table updates or verify Google Script doGet setup.");
-                });
+                .catch(err => console.log('Background cloud fetch note:', err));
         }
 
         function displayResultCard(entry) {
@@ -841,6 +835,7 @@
             hideClearLogVerification();
             loadTimeRangeSetting();
             loadWebhookUrl();
+            fetchRemoteEntries();
             lucide.createIcons();
         }
 
@@ -883,6 +878,7 @@
         function showAdminDataView() {
             document.getElementById('adminAuthView').classList.add('hidden');
             document.getElementById('adminDataView').classList.remove('hidden');
+            fetchRemoteEntries();
             renderTable();
         }
 
@@ -1002,3 +998,4 @@
     </script>
 </body>
 </html>
+
