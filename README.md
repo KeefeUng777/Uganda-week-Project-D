@@ -137,7 +137,7 @@
     <div class="ambient-glow-1 top-10 left-10"></div>
     <div class="ambient-glow-2 bottom-10 right-10"></div>
 
-    <!-- HEADER: Title next to flag icon -->
+    <!-- HEADER -->
     <header class="relative z-10 w-full pt-6 pb-2 px-4">
         <div class="flex items-center gap-4 justify-center">
             <div id="secretTriggerIcon" title="Click 5 times for Admin Access" class="w-12 h-12 rounded-full bg-black/70 border border-uganda-yellow flex items-center justify-center shadow-lg shadow-uganda-yellow/20 transform hover:scale-105 transition-transform duration-300 backdrop-blur-md cursor-pointer select-none">
@@ -197,12 +197,19 @@
 
                     <!-- SELECTOR 2: CLASS -->
                     <div>
-                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                        <label for="classSelect" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                             <i data-lucide="school" class="w-4 h-4 text-uganda-red"></i>
                             Select Class
                         </label>
-                        <div class="grid grid-cols-6 gap-2" id="classButtonGroup"></div>
-                        <input type="hidden" id="classSelect" required>
+                        <select id="classSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none cursor-pointer">
+                            <option value="" disabled selected>-- Choose Class --</option>
+                            <option value="A">Class A</option>
+                            <option value="B">Class B</option>
+                            <option value="C">Class C</option>
+                            <option value="D">Class D</option>
+                            <option value="E">Class E</option>
+                            <option value="F">Class F</option>
+                        </select>
                     </div>
 
                     <!-- SELECTOR 3: CLASS NUMBER (MAX 45) -->
@@ -213,6 +220,16 @@
                         </label>
                         <select id="classNoSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none cursor-pointer">
                             <option value="" disabled selected>-- Select Number (1 to 45) --</option>
+                        </select>
+                    </div>
+
+                    <!-- SELECTOR 4: TIME SLOT (1:00 - 1:50 Default Range) -->
+                    <div>
+                        <label for="timeSelect" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-4 h-4 text-uganda-red"></i>
+                            Select Time Slot
+                        </label>
+                        <select id="timeSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none cursor-pointer">
                         </select>
                     </div>
 
@@ -229,6 +246,7 @@
                 </form>
             </div>
 
+            <!-- TICKET CARD -->
             <div id="ticketCard" class="hidden glass-card rounded-3xl p-6 sm:p-8 relative transition-all duration-500">
                 <div class="text-center space-y-4">
                     <div class="inline-flex items-center justify-center w-12 h-12 bg-green-500/20 text-green-400 rounded-full mb-1 border border-green-500/30">
@@ -247,19 +265,24 @@
                             <span></span>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-3 text-center mb-5">
+                        <div class="grid grid-cols-3 gap-3 text-center mb-4">
                             <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
                                 <span class="text-[10px] text-gray-400 block">GRADE</span>
-                                <span id="resGrade" class="text-lg font-bold text-white">--</span>
+                                <span id="resGrade" class="text-base font-bold text-white">--</span>
                             </div>
                             <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
                                 <span class="text-[10px] text-gray-400 block">CLASS</span>
-                                <span id="resClass" class="text-lg font-bold text-white">--</span>
+                                <span id="resClass" class="text-base font-bold text-white">--</span>
                             </div>
                             <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
                                 <span class="text-[10px] text-gray-400 block">NO.</span>
-                                <span id="resClassNo" class="text-lg font-bold text-white">--</span>
+                                <span id="resClassNo" class="text-base font-bold text-white">--</span>
                             </div>
+                        </div>
+
+                        <div class="bg-gray-900/60 p-3 rounded-xl border border-gray-800 mb-4 text-center">
+                            <span class="text-[10px] text-gray-400 block uppercase tracking-wider">Selected Time Slot</span>
+                            <span id="resTimeSlot" class="text-lg font-bold text-uganda-yellow">--:--</span>
                         </div>
 
                         <div class="bg-gradient-to-r from-gray-900 via-black to-gray-900 p-4 rounded-xl border border-uganda-yellow/50 text-center">
@@ -271,7 +294,7 @@
 
                         <div class="mt-4 flex items-center justify-between text-[11px] text-gray-400 pt-2 border-t border-gray-800/80">
                             <span>Status: Synchronized</span>
-                            <span id="resTime" class="font-mono">--:--</span>
+                            <span id="resRegisterTime" class="font-mono">--:--</span>
                         </div>
                     </div>
 
@@ -288,6 +311,7 @@
         </div>
     </main>
 
+    <!-- ADMIN MODAL -->
     <div id="adminModal" class="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300">
         <div class="bg-black border border-gray-800 w-full max-w-4xl max-h-[90vh] rounded-3xl flex flex-col shadow-2xl overflow-hidden">
             
@@ -334,21 +358,39 @@
 
             <!-- SINGLE ADMIN DASHBOARD -->
             <div id="adminDataView" class="hidden flex-1 flex flex-col overflow-hidden p-6 space-y-4 bg-black">
+                
+                <!-- TIME RANGE CONFIGURATION BAR -->
+                <div class="bg-black p-4 rounded-2xl border border-uganda-yellow/30 space-y-3">
+                    <div class="text-sm font-bold text-uganda-yellow flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4"></i> Time Range Settings (Bar Slider / Custom)
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs text-gray-400 block mb-1">Minimum Time (Bar Start)</label>
+                            <input type="time" id="timeMin" min="12:30" max="13:55" value="13:00" class="w-full bg-black border border-gray-800 rounded-xl px-3 py-2 text-white outline-none focus:border-uganda-yellow">
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-400 block mb-1">Maximum Time (Bar End)</label>
+                            <input type="time" id="timeMax" min="12:30" max="13:55" value="13:50" class="w-full bg-black border border-gray-800 rounded-xl px-3 py-2 text-white outline-none focus:border-uganda-yellow">
+                        </div>
+                    </div>
+                    <button onclick="saveTimeRange()" class="bg-uganda-yellow text-black font-bold px-4 py-2 rounded-xl text-xs hover:bg-yellow-400 transition">Save Range & Update Time Choices</button>
+                    <p class="text-[11px] text-gray-400">Default time window is set from 13:00 to 13:50. You can customize the boundaries here.</p>
+                </div>
+
                 <!-- Search & Action Buttons -->
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <div class="relative flex-1">
                         <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
-                        <input type="text" id="searchInput" oninput="renderTable()" placeholder="Search by Grade, Class, Code..." class="w-full bg-black border border-gray-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white outline-none focus:border-uganda-yellow">
+                        <input type="text" id="searchInput" oninput="renderTable()" placeholder="Search by Grade, Class, Code, Time..." class="w-full bg-black border border-gray-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white outline-none focus:border-uganda-yellow">
                     </div>
                     
                     <div class="flex items-center gap-2">
                         <button onclick="exportToCSV()" class="bg-green-700 hover:bg-green-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center gap-2 shadow-lg shadow-green-900/20">
-                            <i data-lucide="download" class="w-4 h-4"></i>
-                            Export to Excel (.csv)
+                            <i data-lucide="download" class="w-4 h-4"></i> Export to Excel (.csv)
                         </button>
                         <button onclick="showClearLogVerification()" class="bg-black hover:bg-red-950 text-red-400 border border-red-900/60 font-semibold py-2.5 px-3 rounded-xl text-xs transition flex items-center gap-1.5">
-                            <i data-lucide="trash-2" class="w-4 h-4"></i>
-                            Clear ALL Records
+                            <i data-lucide="trash-2" class="w-4 h-4"></i> Clear ALL Records
                         </button>
                     </div>
                 </div>
@@ -370,7 +412,7 @@
                     <span>Flagged Entries: <strong id="spamCount" class="text-red-400 font-mono">0</strong></span>
                 </div>
 
-                <!-- Valid Normal Records Box -->
+                <!-- Valid Normal Records Box (No Device ID) -->
                 <div>
                     <div class="text-sm font-bold text-green-300 mb-2 flex items-center gap-2">
                         <i data-lucide="check-square" class="w-4 h-4"></i> Valid Normal Records
@@ -383,9 +425,9 @@
                                     <th class="p-3.5">Grade</th>
                                     <th class="p-3.5">Class</th>
                                     <th class="p-3.5">Class No.</th>
+                                    <th class="p-3.5">Time Slot</th>
                                     <th class="p-3.5">Code</th>
                                     <th class="p-3.5">Timestamp</th>
-                                    <th class="p-3.5">Device ID</th>
                                     <th class="p-3.5">Action</th>
                                 </tr>
                             </thead>
@@ -395,7 +437,7 @@
                     </div>
                 </div>
 
-                <!-- Flagged Codes Separate Box -->
+                <!-- Flagged Codes Separate Box (No Device ID) -->
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <div class="text-sm font-bold text-red-300 flex items-center gap-2">
@@ -413,9 +455,9 @@
                                     <th class="p-3.5">Grade</th>
                                     <th class="p-3.5">Class</th>
                                     <th class="p-3.5">Class No.</th>
+                                    <th class="p-3.5">Time Slot</th>
                                     <th class="p-3.5">Code</th>
                                     <th class="p-3.5">Timestamp</th>
-                                    <th class="p-3.5">Device ID</th>
                                     <th class="p-3.5">Action</th>
                                 </tr>
                             </thead>
@@ -446,17 +488,18 @@
         // --- CONSTANTS & STORAGE KEYS ---
         const ADMIN_SECRET_PASS = "20UgandaGbCrBd26";
         const STORAGE_KEY_ENTRIES = 'uganda_week_all_entries_v2';
+        const STORAGE_KEY_TIME_RANGE = 'uganda_week_time_range';
         const STORAGE_KEY_DEVICE_ID = 'uganda_week_device_id_v2';
         const STORAGE_KEY_WEBHOOK = 'uganda_week_webhook_url_v2';
         const SPAM_THRESHOLD = 8;
 
         const HARDCODED_WEBHOOK_URL = "PASTE_YOUR_DEPLOYED_WEBAPP_URL_HERE";
 
-        let selectedClass = '';
         let triggerClickCount = 0;
         let triggerClickTimer = null;
+        // Default time range between 1:00 (13:00) and 1:50 (13:50), bounded by 12:30 and 1:55
+        let timeRange = {min: "13:00", max: "13:50"};
 
-        // Persistent Device Identifier
         let deviceId = localStorage.getItem(STORAGE_KEY_DEVICE_ID);
         if (!deviceId) {
             deviceId = 'DEV-' + Math.random().toString(36).substring(2, 9).toUpperCase();
@@ -490,24 +533,71 @@
         // --- INITIALIZATION ---
         window.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
+            loadTimeRangeSetting();
             populateClassNoOptions();
-            renderClassButtons();
+            populateTimeOptions();
             setupSecretTrigger();
             loadWebhookUrl();
 
-            document.getElementById('gradeSelect').addEventListener('change', ()=>{
-                selectedClass = '';
-                document.getElementById('classSelect').value = '';
-                renderClassButtons();
-                hideDuplicateWarning();
-            });
-            document.getElementById('classButtonGroup').addEventListener('click', ()=>{
-                hideDuplicateWarning();
-            });
-            document.getElementById('classNoSelect').addEventListener('change', ()=>{
-                hideDuplicateWarning();
-            });
+            document.getElementById('gradeSelect').addEventListener('change', hideDuplicateWarning);
+            document.getElementById('classSelect').addEventListener('change', hideDuplicateWarning);
+            document.getElementById('classNoSelect').addEventListener('change', hideDuplicateWarning);
         });
+
+        function loadTimeRangeSetting(){
+            const saved = localStorage.getItem(STORAGE_KEY_TIME_RANGE);
+            if(saved){
+                timeRange = JSON.parse(saved);
+            }
+            document.getElementById('timeMin').value = timeRange.min;
+            document.getElementById('timeMax').value = timeRange.max;
+        }
+
+        function saveTimeRange(){
+            const minVal = document.getElementById('timeMin').value;
+            const maxVal = document.getElementById('timeMax').value;
+
+            if(minVal < "12:30" || maxVal > "13:55" || minVal >= maxVal){
+                alert("Please ensure times are within the valid bounds (12:30 to 13:55) and Minimum is less than Maximum.");
+                return;
+            }
+
+            timeRange.min = minVal;
+            timeRange.max = maxVal;
+            localStorage.setItem(STORAGE_KEY_TIME_RANGE, JSON.stringify(timeRange));
+            populateTimeOptions();
+            alert("Time range updated successfully!");
+        }
+
+        function populateTimeOptions(){
+            const timeSelect = document.getElementById('timeSelect');
+            timeSelect.innerHTML = "";
+            const [minH, minM] = timeRange.min.split(":").map(Number);
+            const [maxH, maxM] = timeRange.max.split(":").map(Number);
+
+            let currentMin = minH * 60 + minM;
+            const endMin = maxH * 60 + maxM;
+            let defaultSet = false;
+
+            while(currentMin <= endMin){
+                const hh = String(Math.floor(currentMin / 60)).padStart(2,"0");
+                const mm = String(currentMin % 60).padStart(2,"0");
+                const timeStr = `${hh}:${mm}`;
+                const opt = document.createElement("option");
+                opt.value = timeStr;
+                opt.textContent = timeStr;
+                // Preselect 13:00 (1:00 PM) or first available option
+                if(timeStr === "13:00" || (!defaultSet && timeSelect.options.length === 0)){
+                    opt.selected = true;
+                    defaultSet = true;
+                }
+                timeSelect.appendChild(opt);
+                currentMin += 10;
+            }
+            if(!defaultSet && timeSelect.options.length > 0){
+                timeSelect.options[0].selected = true;
+            }
+        }
 
         function hideDuplicateWarning(){
             document.getElementById('duplicateWarning').classList.add('hidden');
@@ -523,51 +613,6 @@
             }
         }
 
-        function getAllowedClasses(gradeVal){
-            if(!gradeVal) return ['A','B','C','D','E','F'];
-            if(gradeVal.startsWith('K')){
-                return ['A','B','C','D'];
-            }else if(gradeVal.startsWith('P')){
-                return ['A','B','C','D','E'];
-            }else if(gradeVal.startsWith('S')){
-                return ['A','B','C','D','E','F'];
-            }
-            return ['A','B','C','D','E','F'];
-        }
-
-        function renderClassButtons() {
-            const container = document.getElementById('classButtonGroup');
-            const grade = document.getElementById('gradeSelect').value;
-            const allowed = getAllowedClasses(grade);
-            container.innerHTML = '';
-
-            allowed.forEach(cls => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = `class-btn py-3 rounded-xl border border-gray-800 bg-black font-bold text-sm text-gray-300 hover:border-uganda-yellow transition-all`;
-                btn.innerText = cls;
-                btn.onclick = () => selectClass(cls, btn);
-                container.appendChild(btn);
-            });
-        }
-
-        function selectClass(cls, btnElement) {
-            selectedClass = cls;
-            document.getElementById('classSelect').value = cls;
-            
-            document.querySelectorAll('.class-btn').forEach(b => {
-                b.classList.remove('bg-uganda-yellow', 'text-black', 'border-uganda-yellow', 'shadow-md', 'shadow-yellow-500/20');
-                b.classList.add('bg-black', 'text-gray-300', 'border-gray-800');
-            });
-
-            btnElement.classList.remove('bg-black', 'text-gray-300', 'border-gray-800');
-            btnElement.classList.add('bg-uganda-yellow', 'text-black', 'border-uganda-yellow', 'shadow-md', 'shadow-yellow-500/20');
-        }
-
-        function showDuplicateWarning(){
-            document.getElementById('duplicateWarning').classList.remove('hidden');
-        }
-
         function isDuplicateStudent(grade, cls, no){
             const entries = getEntriesFromDatabase();
             return entries.some(e => e.grade === grade && e.class === cls && e.classNo === Number(no));
@@ -577,11 +622,12 @@
             event.preventDefault();
 
             const grade = document.getElementById('gradeSelect').value;
-            const cls = selectedClass;
+            const cls = document.getElementById('classSelect').value;
             const classNo = document.getElementById('classNoSelect').value;
+            const selectedTimeSlot = document.getElementById('timeSelect').value;
 
-            if (!grade || !cls || !classNo) {
-                alert('Please fill out all 3 selectors (Grade, Class, Class No.).');
+            if (!grade || !cls || !classNo || !selectedTimeSlot) {
+                alert('Please fill out all required fields.');
                 return;
             }
 
@@ -604,6 +650,7 @@
                 grade: grade,
                 class: cls,
                 classNo: parseInt(classNo),
+                timeSlot: selectedTimeSlot,
                 code: uniqueCode,
                 timestamp: timestamp,
                 deviceId: deviceId,
@@ -645,7 +692,7 @@
             entries = entries.filter(e => !e.isPermanentSpam);
             saveAllEntries(entries);
             renderTable();
-            alert("All flagged entries cleared. Valid records remain untouched.");
+            alert("All flagged entries cleared.");
         }
 
         function sendToLiveWebhook(entry) {
@@ -669,8 +716,9 @@
             document.getElementById('resGrade').innerText = entry.grade;
             document.getElementById('resClass').innerText = entry.class;
             document.getElementById('resClassNo').innerText = entry.classNo;
+            document.getElementById('resTimeSlot').innerText = entry.timeSlot;
             document.getElementById('resCode').innerText = entry.code;
-            document.getElementById('resTime').innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            document.getElementById('resRegisterTime').innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
             const formCard = document.getElementById('formCard');
             const ticketCard = document.getElementById('ticketCard');
@@ -693,6 +741,8 @@
                 formCard.classList.remove('hidden', 'opacity-0', 'scale-95');
                 formCard.classList.add('opacity-100', 'scale-100');
                 hideDuplicateWarning();
+                document.getElementById('registrationForm').reset();
+                populateTimeOptions();
             }, 300);
         }
 
@@ -727,6 +777,8 @@
             document.getElementById('adminAuthView').classList.remove('hidden');
             document.getElementById('adminDataView').classList.add('hidden');
             hideClearLogVerification();
+            loadTimeRangeSetting();
+            lucide.createIcons();
         }
 
         function closeAdminModal() {
@@ -790,7 +842,7 @@
                     item.class.toLowerCase().includes(searchVal) ||
                     String(item.classNo).includes(searchVal) ||
                     item.code.toLowerCase().includes(searchVal) ||
-                    item.deviceId.toLowerCase().includes(searchVal)
+                    (item.timeSlot && item.timeSlot.toLowerCase().includes(searchVal))
                 );
             });
 
@@ -803,9 +855,9 @@
                     <td class="p-3.5 font-bold text-uganda-yellow">${entry.grade}</td>
                     <td class="p-3.5 text-white">${entry.class}</td>
                     <td class="p-3.5 text-white">${entry.classNo}</td>
+                    <td class="p-3.5 text-uganda-yellow">${entry.timeSlot || '--'}</td>
                     <td class="p-3.5 font-mono text-uganda-yellow font-bold">${entry.code}</td>
                     <td class="p-3.5 text-gray-400 text-[11px]">${entry.timestamp}</td>
-                    <td class="p-3.5 text-gray-500 text-[10px] font-mono">${entry.deviceId}</td>
                     <td class="p-3.5">
                         <button onclick="deleteSingleEntry(${entry.id})" class="px-2 py-1 rounded bg-black border border-red-900 text-red-400 hover:bg-red-950 text-[10px]">
                             Delete
@@ -837,7 +889,7 @@
             }
 
             let csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "Sequence,Grade,Class,ClassNumber,Code,Timestamp,DeviceID,StatusFlag\n";
+            csvContent += "Sequence,Grade,Class,ClassNumber,TimeSlot,Code,Timestamp,StatusFlag\n";
 
             entries.forEach((row, idx) => {
                 const spamFlag = row.isPermanentSpam ? "FLAGGED" : "OK";
@@ -846,9 +898,9 @@
                     `"${row.grade}"`,
                     `"${row.class}"`,
                     row.classNo,
+                    `"${row.timeSlot || ''}"`,
                     `"${row.code}"`,
                     `"${row.timestamp}"`,
-                    `"${row.deviceId}"`,
                     `"${spamFlag}"`
                 ].join(",");
                 csvContent += line + "\n";
@@ -891,3 +943,4 @@
     </script>
 </body>
 </html>
+
