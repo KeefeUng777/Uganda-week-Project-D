@@ -511,7 +511,7 @@
         const STORAGE_KEY_WEBHOOK = 'uganda_week_webhook_url_v2';
         const SPAM_THRESHOLD = 8;
 
-        const HARDCODED_WEBHOOK_URL = "";
+        const HARDCODED_WEBHOOK_URL = "https://script.google.com/u/1/home/projects/1bcRa4_ZhA4ELIvUqVqEfJV-Aq83VRgXvFkb6wqF4I0_AiEFPLgaTY9n-/edit";
 
         let triggerClickCount = 0;
         let triggerClickTimer = null;
@@ -994,7 +994,7 @@
                 hideClearLogVerification();
                 alert("All records cleared.");
             }else{
-                document.getElementById('clearPassError').classList.add('hidden');
+                document.getElementById('clearPassError').classList.remove('hidden');
             }
         }
 
@@ -1002,4 +1002,3 @@
     </script>
 </body>
 </html>
-
