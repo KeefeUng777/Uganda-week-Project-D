@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -275,12 +275,8 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
-                        <button onclick="copyCode()" class="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-xl border border-gray-700 transition flex items-center justify-center gap-2 text-xs">
-                            <i data-lucide="copy" class="w-4 h-4"></i>
-                            <span id="copyBtnText">Copy Code</span>
-                        </button>
-                        <button onclick="resetFormView()" class="flex-1 bg-transparent hover:bg-white/5 text-gray-300 font-semibold py-3 px-4 rounded-xl border border-gray-700 transition flex items-center justify-center gap-2 text-xs">
+                    <div class="pt-2">
+                        <button onclick="resetFormView()" class="w-full bg-black/80 hover:bg-black text-gray-200 font-semibold py-3 px-4 rounded-xl border border-gray-800 transition flex items-center justify-center gap-2 text-xs">
                             <i data-lucide="refresh-cw" class="w-4 h-4"></i>
                             <span>New Entry</span>
                         </button>
@@ -292,11 +288,11 @@
         </div>
     </main>
 
-    <div id="adminModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300">
-        <div class="glass-card w-full max-w-4xl max-h-[90vh] rounded-3xl flex flex-col border border-uganda-yellow/40 overflow-hidden shadow-2xl">
+    <div id="adminModal" class="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300">
+        <div class="bg-black border border-gray-800 w-full max-w-4xl max-h-[90vh] rounded-3xl flex flex-col shadow-2xl overflow-hidden">
             
             <!-- Modal Header -->
-            <div class="p-5 border-b border-gray-800 flex items-center justify-between bg-black/70">
+            <div class="p-5 border-b border-gray-800 flex items-center justify-between bg-black">
                 <div class="flex items-center gap-3">
                     <div class="p-2 rounded-xl bg-uganda-yellow/10 border border-uganda-yellow/30 text-uganda-yellow">
                         <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
@@ -309,13 +305,13 @@
                         <p class="text-xs text-gray-400">View records, export to Excel (.csv)</p>
                     </div>
                 </div>
-                <button onclick="closeAdminModal()" class="text-gray-400 hover:text-white p-2 rounded-xl hover:bg-gray-800 transition">
+                <button onclick="closeAdminModal()" class="text-gray-400 hover:text-white p-2 rounded-xl hover:bg-gray-900 transition">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
 
             <!-- Password Masked View -->
-            <div id="adminAuthView" class="p-8 text-center flex flex-col items-center justify-center my-auto">
+            <div id="adminAuthView" class="p-8 text-center flex flex-col items-center justify-center my-auto bg-black">
                 <div class="w-12 h-12 rounded-full bg-red-500/10 text-uganda-red flex items-center justify-center mb-4 border border-red-500/20">
                     <i data-lucide="lock" class="w-6 h-6"></i>
                 </div>
@@ -324,7 +320,7 @@
                 
                 <form onsubmit="event.preventDefault(); verifyAdminPass();" class="w-full max-w-xs space-y-3">
                     <div class="relative">
-                        <input type="password" id="adminPassInput" placeholder="Enter Admin Password" autocomplete="current-password" class="w-full bg-black/80 border border-gray-700 text-white rounded-xl p-3 text-center text-sm outline-none focus:border-uganda-yellow pr-10">
+                        <input type="password" id="adminPassInput" placeholder="Enter Admin Password" autocomplete="current-password" class="w-full bg-black border border-gray-800 text-white rounded-xl p-3 text-center text-sm outline-none focus:border-uganda-yellow pr-10">
                         <button type="button" onclick="togglePassVisibility()" class="absolute right-3 top-3.5 text-gray-400 hover:text-white">
                             <i id="eyeIcon" data-lucide="eye" class="w-4 h-4"></i>
                         </button>
@@ -337,33 +333,33 @@
             </div>
 
             <!-- SINGLE ADMIN DASHBOARD -->
-            <div id="adminDataView" class="hidden flex-1 flex flex-col overflow-hidden p-6 space-y-4">
+            <div id="adminDataView" class="hidden flex-1 flex flex-col overflow-hidden p-6 space-y-4 bg-black">
                 <!-- Search & Action Buttons -->
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <div class="relative flex-1">
                         <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
-                        <input type="text" id="searchInput" oninput="renderTable()" placeholder="Search by Grade, Class, Code..." class="w-full bg-black/60 border border-gray-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white outline-none focus:border-uganda-yellow">
+                        <input type="text" id="searchInput" oninput="renderTable()" placeholder="Search by Grade, Class, Code..." class="w-full bg-black border border-gray-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white outline-none focus:border-uganda-yellow">
                     </div>
                     
                     <div class="flex items-center gap-2">
-                        <button onclick="exportToCSV()" class="bg-green-600 hover:bg-green-500 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center gap-2 shadow-lg shadow-green-600/20">
+                        <button onclick="exportToCSV()" class="bg-green-700 hover:bg-green-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center gap-2 shadow-lg shadow-green-900/20">
                             <i data-lucide="download" class="w-4 h-4"></i>
                             Export to Excel (.csv)
                         </button>
-                        <button onclick="showClearLogVerification()" class="bg-red-950/60 hover:bg-red-900 text-red-300 border border-red-800/50 font-semibold py-2.5 px-3 rounded-xl text-xs transition flex items-center gap-1.5">
+                        <button onclick="showClearLogVerification()" class="bg-black hover:bg-red-950 text-red-400 border border-red-900/60 font-semibold py-2.5 px-3 rounded-xl text-xs transition flex items-center gap-1.5">
                             <i data-lucide="trash-2" class="w-4 h-4"></i>
-                            Clear ALL Records (Password Required)
+                            Clear ALL Records
                         </button>
                     </div>
                 </div>
 
                 <!-- Clear Log Password Verification Panel -->
-                <div id="clearVerifyPanel" class="hidden bg-red-950/40 p-4 rounded-2xl border border-red-800 space-y-3">
+                <div id="clearVerifyPanel" class="hidden bg-black p-4 rounded-2xl border border-red-900 space-y-3">
                     <p class="text-sm text-red-300 font-semibold">⚠️ WARNING: This will delete ALL records and reset code counter. Enter admin password to confirm.</p>
                     <div class="flex gap-2 items-center">
-                        <input type="password" id="clearPassInput" placeholder="Enter admin password" class="flex-1 bg-black/80 border border-red-800 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-uganda-yellow">
-                        <button onclick="confirmClearLog()" class="bg-red-600 hover:bg-red-500 text-white font-bold px-3 py-2 rounded-xl text-xs">Confirm Delete</button>
-                        <button onclick="hideClearLogVerification()" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-xl text-xs">Cancel</button>
+                        <input type="password" id="clearPassInput" placeholder="Enter admin password" class="flex-1 bg-black border border-red-900 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-uganda-yellow">
+                        <button onclick="confirmClearLog()" class="bg-red-700 hover:bg-red-600 text-white font-bold px-3 py-2 rounded-xl text-xs">Confirm Delete</button>
+                        <button onclick="hideClearLogVerification()" class="bg-black border border-gray-800 text-gray-300 hover:text-white px-3 py-2 rounded-xl text-xs">Cancel</button>
                     </div>
                     <p id="clearPassError" class="hidden text-xs text-red-400">Wrong admin password. Deletion cancelled.</p>
                 </div>
@@ -379,9 +375,9 @@
                     <div class="text-sm font-bold text-green-300 mb-2 flex items-center gap-2">
                         <i data-lucide="check-square" class="w-4 h-4"></i> Valid Normal Records
                     </div>
-                    <div class="max-h-[28vh] overflow-auto border border-gray-800 rounded-2xl bg-black/60">
+                    <div class="max-h-[28vh] overflow-auto border border-gray-800 rounded-2xl bg-black">
                         <table class="w-full text-left text-xs text-gray-300">
-                            <thead class="bg-gray-900/90 text-gray-400 uppercase tracking-wider sticky top-0 border-b border-gray-800 font-mono">
+                            <thead class="bg-black text-gray-400 uppercase tracking-wider sticky top-0 border-b border-gray-800 font-mono">
                                 <tr>
                                     <th class="p-3.5">#</th>
                                     <th class="p-3.5">Grade</th>
@@ -393,7 +389,7 @@
                                     <th class="p-3.5">Action</th>
                                 </tr>
                             </thead>
-                            <tbody id="validTableBody" class="divide-y divide-gray-800/60 font-mono">
+                            <tbody id="validTableBody" class="divide-y divide-gray-900 font-mono">
                             </tbody>
                         </table>
                     </div>
@@ -405,13 +401,13 @@
                         <div class="text-sm font-bold text-red-300 flex items-center gap-2">
                             <i data-lucide="alert-triangle" class="w-4 h-4"></i> Flagged Codes Box
                         </div>
-                        <button onclick="clearAllSpamRecords()" class="bg-red-700 hover:bg-red-600 text-white text-xs px-3 py-1.5 rounded-lg">
+                        <button onclick="clearAllSpamRecords()" class="bg-black border border-red-900/60 hover:bg-red-950 text-red-300 text-xs px-3 py-1.5 rounded-lg">
                             Clear All Flagged
                         </button>
                     </div>
-                    <div class="max-h-[28vh] overflow-auto border border-red-800/50 rounded-2xl bg-red-950/20">
+                    <div class="max-h-[28vh] overflow-auto border border-red-900/40 rounded-2xl bg-black">
                         <table class="w-full text-left text-xs text-gray-300">
-                            <thead class="bg-red-950/60 text-gray-400 uppercase tracking-wider sticky top-0 border-b border-red-800/40 font-mono">
+                            <thead class="bg-black text-gray-400 uppercase tracking-wider sticky top-0 border-b border-red-900/40 font-mono">
                                 <tr>
                                     <th class="p-3.5">#</th>
                                     <th class="p-3.5">Grade</th>
@@ -423,7 +419,7 @@
                                     <th class="p-3.5">Action</th>
                                 </tr>
                             </thead>
-                            <tbody id="spamTableBody" class="divide-y divide-red-900/40 font-mono">
+                            <tbody id="spamTableBody" class="divide-y divide-red-950 font-mono">
                             </tbody>
                         </table>
                     </div>
@@ -548,7 +544,7 @@
             allowed.forEach(cls => {
                 const btn = document.createElement('button');
                 btn.type = 'button';
-                btn.className = `class-btn py-3 rounded-xl border border-gray-700 bg-black/60 font-bold text-sm text-gray-300 hover:border-uganda-yellow transition-all`;
+                btn.className = `class-btn py-3 rounded-xl border border-gray-800 bg-black font-bold text-sm text-gray-300 hover:border-uganda-yellow transition-all`;
                 btn.innerText = cls;
                 btn.onclick = () => selectClass(cls, btn);
                 container.appendChild(btn);
@@ -561,10 +557,10 @@
             
             document.querySelectorAll('.class-btn').forEach(b => {
                 b.classList.remove('bg-uganda-yellow', 'text-black', 'border-uganda-yellow', 'shadow-md', 'shadow-yellow-500/20');
-                b.classList.add('bg-black/60', 'text-gray-300', 'border-gray-700');
+                b.classList.add('bg-black', 'text-gray-300', 'border-gray-800');
             });
 
-            btnElement.classList.remove('bg-black/60', 'text-gray-300', 'border-gray-700');
+            btnElement.classList.remove('bg-black', 'text-gray-300', 'border-gray-800');
             btnElement.classList.add('bg-uganda-yellow', 'text-black', 'border-uganda-yellow', 'shadow-md', 'shadow-yellow-500/20');
         }
 
@@ -700,22 +696,6 @@
             }, 300);
         }
 
-        function copyCode() {
-            const codeText = document.getElementById('resCode').innerText;
-            const tempInput = document.createElement('input');
-            tempInput.value = codeText;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            const btnText = document.getElementById('copyBtnText');
-            btnText.innerText = 'Copied!';
-            setTimeout(() => {
-                btnText.innerText = 'Copy Code';
-            }, 2000);
-        }
-
         function setupSecretTrigger() {
             const icon = document.getElementById('secretTriggerIcon');
             icon.addEventListener('click', () => {
@@ -817,7 +797,7 @@
             filtered.forEach((entry, index) => {
                 const isSpam = !!entry.isPermanentSpam;
                 const tr = document.createElement('tr');
-                tr.className = 'hover:bg-white/5 transition';
+                tr.className = 'hover:bg-gray-900 transition';
                 tr.innerHTML = `
                     <td class="p-3.5 text-gray-500">${index + 1}</td>
                     <td class="p-3.5 font-bold text-uganda-yellow">${entry.grade}</td>
@@ -827,7 +807,7 @@
                     <td class="p-3.5 text-gray-400 text-[11px]">${entry.timestamp}</td>
                     <td class="p-3.5 text-gray-500 text-[10px] font-mono">${entry.deviceId}</td>
                     <td class="p-3.5">
-                        <button onclick="deleteSingleEntry(${entry.id})" class="px-2 py-1 rounded bg-red-800 hover:bg-red-700 text-white text-[10px]">
+                        <button onclick="deleteSingleEntry(${entry.id})" class="px-2 py-1 rounded bg-black border border-red-900 text-red-400 hover:bg-red-950 text-[10px]">
                             Delete
                         </button>
                     </td>
@@ -911,4 +891,3 @@
     </script>
 </body>
 </html>
-
