@@ -4,58 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uganda Week Registration</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        uganda: {
-                            black: '#111111',
-                            yellow: '#FCDC04',
-                            red: '#D92323',
-                            gold: '#EAB308',
-                            dark: '#0A0A0A',
-                        }
+                        uganda: { black: '#111111', yellow: '#FCDC04', red: '#D92323', gold: '#EAB308', dark: '#0A0A0A' }
                     },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    }
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
                 }
             }
         }
     </script>
-    
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0a0a0a;
-            min-height: 100vh;
-        }
-
-        /* Fluid Morphing Animated Color Gradient Background */
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0a0a0a; min-height: 100vh; }
         .uganda-morph-bg {
-            background: linear-gradient(
-                135deg, 
-                #0a0a0a 0%, 
-                #1a0505 20%, 
-                #8b1111 40%, 
-                #b8860b 60%, 
-                #111111 80%, 
-                #0a0a0a 100%
-            );
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0505 20%, #8b1111 40%, #b8860b 60%, #111111 80%, #0a0a0a 100%);
             background-size: 250% 250%;
             animation: ugandaMorph 16s ease-in-out infinite alternate;
         }
-
         @keyframes ugandaMorph {
             0% { background-position: 0% 15%; }
             25% { background-position: 50% 85%; }
@@ -63,81 +33,21 @@
             75% { background-position: 50% 15%; }
             100% { background-position: 0% 85%; }
         }
-
-        /* Background Flag Ribbon: Repeated 1-2 times vertically */
         .uganda-flag-ribbon {
-            background-image: repeating-linear-gradient(
-                180deg,
-                rgba(17, 17, 17, 0.4) 0%,
-                rgba(17, 17, 17, 0.4) 16.6%,
-                rgba(252, 220, 4, 0.25) 16.6%,
-                rgba(252, 220, 4, 0.25) 33.3%,
-                rgba(217, 35, 35, 0.25) 33.3%,
-                rgba(217, 35, 35, 0.25) 50%
-            );
-            background-size: 100% 50vh;
-            background-repeat: repeat-y;
+            background-image: repeating-linear-gradient(180deg, rgba(17,17,17,0.4) 0%, rgba(17,17,17,0.4) 16.6%, rgba(252,220,4,0.25) 16.6%, rgba(252,220,4,0.25) 33.3%, rgba(217,35,35,0.25) 33.3%, rgba(217,35,35,0.25) 50%);
+            background-size: 100% 50vh; background-repeat: repeat-y;
         }
-
-        /* Ambient glow circles */
-        .ambient-glow-1 {
-            position: absolute;
-            width: 45vw;
-            height: 45vw;
-            max-width: 500px;
-            max-height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(252, 220, 4, 0.25) 0%, rgba(217, 35, 35, 0) 70%);
-            filter: blur(60px);
-            animation: floatGlow1 12s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-
-        .ambient-glow-2 {
-            position: absolute;
-            width: 50vw;
-            height: 50vw;
-            max-width: 600px;
-            max-height: 600px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(217, 35, 35, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
-            filter: blur(70px);
-            animation: floatGlow2 15s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-
-        @keyframes floatGlow1 {
-            0% { transform: translate(-10%, -10%) scale(1); }
-            100% { transform: translate(30%, 20%) scale(1.2); }
-        }
-
-        @keyframes floatGlow2 {
-            0% { transform: translate(20%, 30%) scale(1.1); }
-            100% { transform: translate(-20%, -10%) scale(0.9); }
-        }
-
-        .glass-card {
-            background: rgba(18, 18, 18, 0.75);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(252, 220, 4, 0.18);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
-        }
-
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFFFFF 0%, #FCDC04 50%, #EAB308 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .ambient-glow-1 { position: absolute; width: 45vw; height: 45vw; max-width: 500px; max-height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(252,220,4,0.25) 0%, rgba(217,35,35,0) 70%); filter: blur(60px); pointer-events: none; }
+        .ambient-glow-2 { position: absolute; width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(217,35,35,0.3) 0%, rgba(0,0,0,0) 70%); filter: blur(70px); pointer-events: none; }
+        .glass-card { background: rgba(18,18,18,0.75); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(252,220,4,0.18); box-shadow: 0 25px 60px rgba(0,0,0,0.75); }
+        .gold-gradient-text { background: linear-gradient(135deg, #FFFFFF 0%, #FCDC04 50%, #EAB308 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
 <body class="min-h-screen uganda-morph-bg text-gray-100 flex flex-col justify-between relative overflow-x-hidden">
-    
     <div class="fixed inset-0 uganda-flag-ribbon pointer-events-none opacity-40"></div>
     <div class="ambient-glow-1 top-10 left-10"></div>
     <div class="ambient-glow-2 bottom-10 right-10"></div>
 
-    <!-- HEADER -->
     <header class="relative z-10 w-full pt-6 pb-2 px-4">
         <div class="flex items-center gap-4 justify-center">
             <div id="secretTriggerIcon" title="Click 5 times for Admin Access" class="w-12 h-12 rounded-full bg-black/70 border border-uganda-yellow flex items-center justify-center shadow-lg shadow-uganda-yellow/20 transform hover:scale-105 transition-transform duration-300 backdrop-blur-md cursor-pointer select-none">
@@ -149,852 +59,376 @@
 
     <main class="relative z-10 flex-1 flex items-center justify-center p-4">
         <div class="w-full max-w-md">
-
-            <!-- MAIN FORM CARD -->
             <div id="formCard" class="glass-card rounded-3xl p-6 sm:p-8 relative transition-all duration-500 transform">
-                
                 <div class="flex items-center justify-between mb-6">
                     <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                        <i data-lucide="user-check" class="text-uganda-yellow w-5 h-5"></i>
-                        Student Registration
+                        <i data-lucide="user-check" class="text-uganda-yellow w-5 h-5"></i> Student Registration
                     </h2>
-                    <span></span>
                 </div>
-
                 <form id="registrationForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
-                    
-                    <!-- SELECTOR 1: GRADE -->
                     <div>
                         <label for="gradeSelect" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                            <i data-lucide="graduation-cap" class="w-4 h-4 text-uganda-yellow"></i>
-                            Select Grade
+                            <i data-lucide="graduation-cap" class="w-4 h-4 text-uganda-yellow"></i> Select Grade
                         </label>
                         <select id="gradeSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none appearance-none cursor-pointer">
                             <option value="" disabled selected>-- Choose Grade --</option>
-                            <optgroup label="Kindergarten (K)">
-                                <option value="K1">K1</option>
-                                <option value="K2">K2</option>
-                                <option value="K3">K3</option>
+                            <optgroup label="Kindergarten">
+                                <option value="K1">K1</option><option value="K2">K2</option><option value="K3">K3</option>
                             </optgroup>
-                            <optgroup label="Primary (P)">
-                                <option value="P1">P1</option>
-                                <option value="P2">P2</option>
-                                <option value="P3">P3</option>
-                                <option value="P4">P4</option>
-                                <option value="P5">P5</option>
-                                <option value="P6">P6</option>
+                            <optgroup label="Primary">
+                                <option value="P1">P1</option><option value="P2">P2</option><option value="P3">P3</option><option value="P4">P4</option><option value="P5">P5</option><option value="P6">P6</option>
                             </optgroup>
-                            <optgroup label="Secondary (S)">
-                                <option value="S1">S1</option>
-                                <option value="S2">S2</option>
-                                <option value="S3">S3</option>
-                                <option value="S4">S4</option>
-                                <option value="S5">S5</option>
-                                <option value="S6">S6</option>
+                            <optgroup label="Secondary">
+                                <option value="S1">S1</option><option value="S2">S2</option><option value="S3">S3</option><option value="S4">S4</option><option value="S5">S5</option><option value="S6">S6</option>
                             </optgroup>
                         </select>
                     </div>
 
-                    <!-- SELECTOR 2: CLASS -->
                     <div>
                         <label for="classSelect" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                            <i data-lucide="school" class="w-4 h-4 text-uganda-red"></i>
-                            Select Class
+                            <i data-lucide="school" class="w-4 h-4 text-uganda-red"></i> Select Class
                         </label>
                         <select id="classSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none cursor-pointer">
                             <option value="" disabled selected>-- Choose Class --</option>
-                            <option value="A">Class A</option>
-                            <option value="B">Class B</option>
-                            <option value="C">Class C</option>
-                            <option value="D">Class D</option>
-                            <option value="E">Class E</option>
-                            <option value="F">Class F</option>
+                            <option value="A">Class A</option><option value="B">Class B</option><option value="C">Class C</option>
+                            <option value="D">Class D</option><option value="E">Class E</option><option value="F">Class F</option>
                         </select>
                     </div>
 
-                    <!-- SELECTOR 3: CLASS NUMBER (MAX 45) -->
                     <div>
                         <label for="classNoSelect" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                            <i data-lucide="hash" class="w-4 h-4 text-uganda-yellow"></i>
-                            Class No. (1-45)
+                            <i data-lucide="hash" class="w-4 h-4 text-uganda-yellow"></i> Class No. (1-45)
                         </label>
                         <select id="classNoSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none cursor-pointer">
-                            <option value="" disabled selected>-- Select Number (1 to 45) --</option>
+                            <option value="" disabled selected>-- Select Number --</option>
                         </select>
                     </div>
 
-                    <!-- SELECTOR 4: TIME SLOT -->
                     <div>
                         <label for="timeSelect" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                            <i data-lucide="clock" class="w-4 h-4 text-uganda-red"></i>
-                            Select Time Slot
+                            <i data-lucide="clock" class="w-4 h-4 text-uganda-red"></i> Select Time Slot
                         </label>
-                        <select id="timeSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none cursor-pointer">
-                        </select>
+                        <select id="timeSelect" required class="w-full bg-black/70 border border-gray-700 text-white text-sm rounded-xl focus:ring-2 focus:ring-uganda-yellow focus:border-uganda-yellow p-3.5 transition-all outline-none cursor-pointer"></select>
                     </div>
 
-                    <!-- DUPLICATE WARNING MESSAGE -->
                     <div id="duplicateWarning" class="hidden p-3 rounded-xl bg-red-900/30 border border-red-600/50 text-red-300 text-xs">
-                        ⚠️ This student (Grade-Class-Number) has already been registered. Duplicate entry is not allowed.
+                        ⚠️ This student has already been registered. Duplicate entry is not allowed.
                     </div>
 
-                    <!-- SUBMIT BUTTON -->
-                    <button type="submit" id="submitBtn" class="w-full mt-4 bg-gradient-to-r from-uganda-yellow via-yellow-500 to-uganda-red text-black font-extrabold text-base py-4 px-6 rounded-xl shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
-                        <span>CONFIRM & GENERATE CODE</span>
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    <button type="submit" class="w-full mt-4 bg-gradient-to-r from-uganda-yellow via-yellow-500 to-uganda-red text-black font-extrabold text-base py-4 px-6 rounded-xl shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                        <span>CONFIRM & GENERATE CODE</span> <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </button>
                 </form>
             </div>
 
-            <!-- TICKET CARD -->
             <div id="ticketCard" class="hidden glass-card rounded-3xl p-6 sm:p-8 relative transition-all duration-500">
                 <div class="text-center space-y-4">
                     <div class="inline-flex items-center justify-center w-12 h-12 bg-green-500/20 text-green-400 rounded-full mb-1 border border-green-500/30">
                         <i data-lucide="check-circle" class="w-6 h-6"></i>
                     </div>
-
                     <h3 class="text-2xl font-bold text-white">Registration Complete!</h3>
-                    <p class="text-xs text-gray-300">Your unique registration code has been generated.</p>
-
                     <div class="bg-black/80 rounded-2xl p-5 border border-uganda-yellow/40 text-left relative overflow-hidden my-4 shadow-inner">
-                        <div class="flex justify-between items-start border-b border-gray-800 pb-3 mb-4">
-                            <div>
-                                <span class="text-[10px] text-gray-400 uppercase tracking-widest block">EVENT</span>
-                                <span class="text-sm font-bold text-uganda-yellow">UGANDA WEEK 2026</span>
-                            </div>
-                            <span></span>
-                        </div>
-
                         <div class="grid grid-cols-3 gap-3 text-center mb-4">
-                            <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
-                                <span class="text-[10px] text-gray-400 block">GRADE</span>
-                                <span id="resGrade" class="text-base font-bold text-white">--</span>
-                            </div>
-                            <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
-                                <span class="text-[10px] text-gray-400 block">CLASS</span>
-                                <span id="resClass" class="text-base font-bold text-white">--</span>
-                            </div>
-                            <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800">
-                                <span class="text-[10px] text-gray-400 block">NO.</span>
-                                <span id="resClassNo" class="text-base font-bold text-white">--</span>
-                            </div>
+                            <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800"><span class="text-[10px] text-gray-400 block">GRADE</span><span id="resGrade" class="text-base font-bold text-white">--</span></div>
+                            <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800"><span class="text-[10px] text-gray-400 block">CLASS</span><span id="resClass" class="text-base font-bold text-white">--</span></div>
+                            <div class="bg-gray-900/80 p-2.5 rounded-xl border border-gray-800"><span class="text-[10px] text-gray-400 block">NO.</span><span id="resClassNo" class="text-base font-bold text-white">--</span></div>
                         </div>
-
-                        <div class="bg-gray-900/60 p-3 rounded-xl border border-gray-800 mb-4 text-center">
-                            <span class="text-[10px] text-gray-400 block uppercase tracking-wider">Selected Time Slot</span>
-                            <span id="resTimeSlot" class="text-lg font-bold text-uganda-yellow">--:--</span>
-                        </div>
-
+                        <div class="bg-gray-900/60 p-3 rounded-xl border border-gray-800 mb-4 text-center"><span class="text-[10px] text-gray-400 block uppercase">Time Slot</span><span id="resTimeSlot" class="text-lg font-bold text-uganda-yellow">--:--</span></div>
                         <div class="bg-gradient-to-r from-gray-900 via-black to-gray-900 p-4 rounded-xl border border-uganda-yellow/50 text-center">
                             <span class="text-[10px] text-gray-400 tracking-widest block mb-1 uppercase">Registration Code</span>
-                            <div id="resCode" class="text-4xl sm:text-5xl font-mono font-black text-uganda-yellow tracking-widest py-1">
-                                0001
-                            </div>
-                        </div>
-
-                        <div class="mt-4 flex items-center justify-between text-[11px] text-gray-400 pt-2 border-t border-gray-800/80">
-                            <span>Status: Synchronized</span>
-                            <span id="resRegisterTime" class="font-mono">--:--</span>
+                            <div id="resCode" class="text-4xl sm:text-5xl font-mono font-black text-uganda-yellow tracking-widest py-1">0001</div>
                         </div>
                     </div>
-
-                    <div class="pt-2">
-                        <button onclick="resetFormView()" class="w-full bg-black/80 hover:bg-black text-gray-200 font-semibold py-3 px-4 rounded-xl border border-gray-800 transition flex items-center justify-center gap-2 text-xs">
-                            <i data-lucide="refresh-cw" class="w-4 h-4"></i>
-                            <span>New Entry</span>
-                        </button>
-                    </div>
-
+                    <button onclick="resetFormView()" class="w-full bg-black/80 hover:bg-black text-gray-200 font-semibold py-3 px-4 rounded-xl border border-gray-800 transition flex items-center justify-center gap-2 text-xs">
+                        <i data-lucide="refresh-cw" class="w-4 h-4"></i> <span>New Entry</span>
+                    </button>
                 </div>
             </div>
-
         </div>
     </main>
 
-    <!-- ADMIN MODAL -->
     <div id="adminModal" class="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300">
         <div class="bg-black border border-gray-800 w-full max-w-4xl max-h-[90vh] rounded-3xl flex flex-col shadow-2xl overflow-hidden">
-            
-            <!-- Modal Header -->
             <div class="p-5 border-b border-gray-800 flex items-center justify-between bg-black flex-shrink-0">
                 <div class="flex items-center gap-3">
-                    <div class="p-2 rounded-xl bg-uganda-yellow/10 border border-uganda-yellow/30 text-uganda-yellow">
-                        <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                            Master Database
-                            <span class="text-xs bg-red-500/20 text-red-400 px-2 py-0.5 rounded border-red-500/30">CONFIDENTIAL</span>
-                        </h3>
-                        <p class="text-xs text-gray-400">View records across all devices, export to Excel (.csv)</p>
-                    </div>
+                    <div class="p-2 rounded-xl bg-uganda-yellow/10 border border-uganda-yellow/30 text-uganda-yellow"><i data-lucide="file-spreadsheet" class="w-5 h-5"></i></div>
+                    <div><h3 class="text-lg font-bold text-white">Master Database</h3><p class="text-xs text-gray-400">Cross-device sync & export</p></div>
                 </div>
-                <button onclick="closeAdminModal()" class="text-gray-400 hover:text-white p-2 rounded-xl hover:bg-gray-900 transition">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
+                <button onclick="closeAdminModal()" class="text-gray-400 hover:text-white p-2 rounded-xl hover:bg-gray-900 transition"><i data-lucide="x" class="w-6 h-6"></i></button>
             </div>
 
-            <!-- Password Masked View -->
             <div id="adminAuthView" class="p-8 text-center flex flex-col items-center justify-center my-auto bg-black">
-                <div class="w-12 h-12 rounded-full bg-red-500/10 text-uganda-red flex items-center justify-center mb-4 border border-red-500/20">
-                    <i data-lucide="lock" class="w-6 h-6"></i>
-                </div>
+                <div class="w-12 h-12 rounded-full bg-red-500/10 text-uganda-red flex items-center justify-center mb-4 border border-red-500/25"><i data-lucide="lock" class="w-6 h-6"></i></div>
                 <h4 class="text-xl font-bold text-white mb-2">Admin Authorization Required</h4>
-                <p class="text-xs text-gray-400 mb-6 max-w-sm">Enter the password to access the student database and export to Excel.</p>
-                
                 <form onsubmit="event.preventDefault(); verifyAdminPass();" class="w-full max-w-xs space-y-3">
                     <div class="relative">
-                        <input type="password" id="adminPassInput" placeholder="Enter Admin Password" autocomplete="current-password" class="w-full bg-black border border-gray-800 text-white rounded-xl p-3 text-center text-sm outline-none focus:border-uganda-yellow pr-10">
-                        <button type="button" onclick="togglePassVisibility()" class="absolute right-3 top-3.5 text-gray-400 hover:text-white">
-                            <i id="eyeIcon" data-lucide="eye" class="w-4 h-4"></i>
-                        </button>
+                        <input type="password" id="adminPassInput" placeholder="Password" class="w-full bg-black border border-gray-800 text-white rounded-xl p-3 text-center text-sm outline-none focus:border-uganda-yellow pr-10">
+                        <button type="button" onclick="togglePassVisibility()" class="absolute right-3 top-3.5 text-gray-400 hover:text-white"><i id="eyeIcon" data-lucide="eye" class="w-4 h-4"></i></button>
                     </div>
-                    <button type="submit" class="w-full bg-uganda-yellow text-black font-bold py-3 rounded-xl hover:bg-yellow-400 transition text-sm">
-                        Unlock Database
-                    </button>
-                    <p id="adminPassError" class="text-xs text-red-400 hidden">Incorrect password. Please try again.</p>
+                    <button type="submit" class="w-full bg-uganda-yellow text-black font-bold py-3 rounded-xl hover:bg-yellow-400 transition text-sm">Unlock</button>
+                    <p id="adminPassError" class="text-xs text-red-400 hidden">Incorrect password.</p>
                 </form>
             </div>
 
-            <!-- SINGLE ADMIN DASHBOARD (SCROLLABLE) -->
             <div id="adminDataView" class="hidden flex-1 flex flex-col overflow-y-auto p-6 space-y-4 bg-black">
-                
-                <!-- WEBHOOK CONFIGURATION PANEL FOR CROSS-DEVICE LOGGING -->
-                <div class="bg-black p-4 rounded-2xl border border-blue-900/40 space-y-3">
-                    <div class="text-sm font-bold text-blue-400 flex items-center justify-between">
-                        <span class="flex items-center gap-2">
-                            <i data-lucide="cloud" class="w-4 h-4"></i> Central Cloud Webhook Sync (Cross-Device Logging)
-                        </span>
-                        <span id="webhookStatusBadge" class="text-[10px] px-2 py-0.5 rounded bg-gray-800 text-gray-400">Local Only</span>
-                    </div>
-                    <div class="flex gap-2">
-                        <input type="url" id="webhookUrlInput" placeholder="https://script.google.com/macros/s/.../exec" class="flex-1 bg-black border border-gray-800 text-white text-xs rounded-xl px-3 py-2 outline-none focus:border-uganda-yellow">
-                        <button onclick="saveWebhookUrl()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition">Save Cloud URL</button>
-                    </div>
-                    <p class="text-[11px] text-gray-400">Paste your deployed Google Apps Script WebApp URL here to sync registrations live across all student devices into a central cloud database.</p>
-                </div>
-
-                <!-- TIME RANGE CONFIGURATION BAR -->
-                <div class="bg-black p-4 rounded-2xl border border-uganda-yellow/30 space-y-3">
-                    <div class="text-sm font-bold text-uganda-yellow flex items-center gap-2">
-                        <i data-lucide="clock" class="w-4 h-4"></i> Time Range Settings
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-xs text-gray-400 block mb-1">Minimum Time (Allowed: 12:30+)</label>
-                            <input type="time" id="timeMin" min="12:30" max="13:55" value="13:00" class="w-full bg-black border border-gray-800 rounded-xl px-3 py-2 text-white outline-none focus:border-uganda-yellow">
-                        </div>
-                        <div>
-                            <label class="text-xs text-gray-400 block mb-1">Maximum Time (Allowed: up to 13:55)</label>
-                            <input type="time" id="timeMax" min="12:30" max="13:55" value="13:50" class="w-full bg-black border border-gray-800 rounded-xl px-3 py-2 text-white outline-none focus:border-uganda-yellow">
-                        </div>
-                    </div>
-                    <button onclick="saveTimeRange()" class="bg-uganda-yellow text-black font-bold px-4 py-2 rounded-xl text-xs hover:bg-yellow-400 transition">Save Range & Update Time Choices</button>
-                    <p class="text-[11px] text-gray-400">Default time window is set from 13:00 to 13:50. Bounds are strictly kept between 12:30 and 13:55.</p>
-                </div>
-
-                <!-- Search & Action Buttons -->
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <div class="relative flex-1">
                         <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
-                        <input type="text" id="searchInput" oninput="renderTable()" placeholder="Search by Grade, Class, Code, Time..." class="w-full bg-black border border-gray-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white outline-none focus:border-uganda-yellow">
+                        <input type="text" id="searchInput" oninput="renderTable()" placeholder="Search..." class="w-full bg-black border border-gray-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white outline-none focus:border-uganda-yellow">
                     </div>
-                    
                     <div class="flex items-center gap-2">
-                        <button onclick="fetchRemoteEntries()" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center gap-1.5 shadow-lg shadow-blue-900/20">
-                            <i data-lucide="refresh-cw" class="w-4 h-4"></i> Sync Cloud Data
-                        </button>
-                        <button onclick="exportToCSV()" class="bg-green-700 hover:bg-green-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center gap-2 shadow-lg shadow-green-900/20">
-                            <i data-lucide="download" class="w-4 h-4"></i> Export (.csv)
-                        </button>
-                        <button onclick="showClearLogVerification()" class="bg-black hover:bg-red-950 text-red-400 border border-red-900/60 font-semibold py-2.5 px-3 rounded-xl text-xs transition flex items-center gap-1.5">
-                            <i data-lucide="trash-2" class="w-4 h-4"></i> Clear ALL
-                        </button>
+                        <button onclick="fetchRemoteEntries()" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2.5 px-3 rounded-xl text-xs transition flex items-center gap-1.5"><i data-lucide="refresh-cw" class="w-4 h-4"></i> Sync</button>
+                        <button onclick="exportToCSV()" class="bg-green-700 hover:bg-green-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center gap-2"><i data-lucide="download" class="w-4 h-4"></i> CSV</button>
+                        <button onclick="showClearLogVerification()" class="bg-black hover:bg-red-950 text-red-400 border border-red-900/60 font-semibold py-2.5 px-3 rounded-xl text-xs transition flex items-center gap-1.5"><i data-lucide="trash-2" class="w-4 h-4"></i> Clear</button>
                     </div>
                 </div>
 
-                <!-- Clear Log Password Verification Panel -->
                 <div id="clearVerifyPanel" class="hidden bg-black p-4 rounded-2xl border border-red-900 space-y-3">
-                    <p class="text-sm text-red-300 font-semibold">⚠️ WARNING: This will delete ALL local records. Enter admin password to confirm.</p>
+                    <p class="text-sm text-red-300 font-semibold">⚠️ Delete ALL local records? Enter password.</p>
                     <div class="flex gap-2 items-center">
-                        <input type="password" id="clearPassInput" placeholder="Enter admin password" class="flex-1 bg-black border border-red-900 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-uganda-yellow">
-                        <button onclick="confirmClearLog()" class="bg-red-700 hover:bg-red-600 text-white font-bold px-3 py-2 rounded-xl text-xs">Confirm Delete</button>
-                        <button onclick="hideClearLogVerification()" class="bg-black border border-gray-800 text-gray-300 hover:text-white px-3 py-2 rounded-xl text-xs">Cancel</button>
+                        <input type="password" id="clearPassInput" placeholder="Password" class="flex-1 bg-black border border-red-900 rounded-xl px-3 py-2 text-sm text-white outline-none">
+                        <button onclick="confirmClearLog()" class="bg-red-700 hover:bg-red-600 text-white font-bold px-3 py-2 rounded-xl text-xs">Confirm</button>
+                        <button onclick="hideClearLogVerification()" class="bg-black border border-gray-800 text-gray-300 px-3 py-2 rounded-xl text-xs">Cancel</button>
                     </div>
-                    <p id="clearPassError" class="hidden text-xs text-red-400">Wrong admin password. Deletion cancelled.</p>
+                    <p id="clearPassError2" class="hidden text-xs text-red-400">Wrong password.</p>
                 </div>
 
                 <div class="flex items-center justify-between text-xs text-gray-400 px-1">
-                    <span>Total Records: <strong id="totalCount" class="text-uganda-yellow font-mono">0</strong></span>
-                    <span>Valid Entries: <strong id="validCount" class="text-green-400 font-mono">0</strong></span>
-                    <span>Flagged Entries: <strong id="spamCount" class="text-red-400 font-mono">0</strong></span>
+                    <span>Total: <strong id="totalCount" class="text-uganda-yellow font-mono">0</strong></span>
+                    <span>Valid: <strong id="validCount" class="text-green-400 font-mono">0</strong></span>
+                    <span>Flagged: <strong id="spamCount" class="text-red-400 font-mono">0</strong></span>
                 </div>
 
-                <!-- Valid Normal Records Box (No Device ID Column) -->
                 <div>
-                    <div class="text-sm font-bold text-green-300 mb-2 flex items-center gap-2">
-                        <i data-lucide="check-square" class="w-4 h-4"></i> Valid Normal Records
-                    </div>
+                    <div class="text-sm font-bold text-green-300 mb-2 flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4"></i> Valid Records</div>
                     <div class="max-h-[28vh] overflow-auto border border-gray-800 rounded-2xl bg-black">
                         <table class="w-full text-left text-xs text-gray-300">
-                            <thead class="bg-black text-gray-400 uppercase tracking-wider sticky top-0 border-b border-gray-800 font-mono">
-                                <tr>
-                                    <th class="p-3.5">#</th>
-                                    <th class="p-3.5">Grade</th>
-                                    <th class="p-3.5">Class</th>
-                                    <th class="p-3.5">Class No.</th>
-                                    <th class="p-3.5">Time Slot</th>
-                                    <th class="p-3.5">Code</th>
-                                    <th class="p-3.5">Timestamp</th>
-                                    <th class="p-3.5">Action</th>
-                                </tr>
+                            <thead class="bg-black text-gray-400 uppercase sticky top-0 border-b border-gray-800 font-mono">
+                                <tr><th class="p-3.5">#</th><th class="p-3.5">Grade</th><th class="p-3.5">Class</th><th class="p-3.5">No.</th><th class="p-3.5">Time</th><th class="p-3.5">Code</th><th class="p-3.5">Timestamp</th><th class="p-3.5">Action</th></tr>
                             </thead>
-                            <tbody id="validTableBody" class="divide-y divide-gray-900 font-mono">
-                            </tbody>
+                            <tbody id="validTableBody" class="divide-y divide-gray-900 font-mono"></tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- Flagged Codes Separate Box (No Device ID Column) -->
                 <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="text-sm font-bold text-red-300 flex items-center gap-2">
-                            <i data-lucide="alert-triangle" class="w-4 h-4"></i> Flagged Codes Box
-                        </div>
-                        <button onclick="clearAllSpamRecords()" class="bg-black border border-red-900/60 hover:bg-red-950 text-red-300 text-xs px-3 py-1.5 rounded-lg">
-                            Clear All Flagged
-                        </button>
-                    </div>
+                    <div class="text-sm font-bold text-red-300 mb-2 flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4"></i> Flagged Box</div>
                     <div class="max-h-[28vh] overflow-auto border border-red-900/40 rounded-2xl bg-black">
                         <table class="w-full text-left text-xs text-gray-300">
-                            <thead class="bg-black text-gray-400 uppercase tracking-wider sticky top-0 border-b border-red-900/40 font-mono">
-                                <tr>
-                                    <th class="p-3.5">#</th>
-                                    <th class="p-3.5">Grade</th>
-                                    <th class="p-3.5">Class</th>
-                                    <th class="p-3.5">Class No.</th>
-                                    <th class="p-3.5">Time Slot</th>
-                                    <th class="p-3.5">Code</th>
-                                    <th class="p-3.5">Timestamp</th>
-                                    <th class="p-3.5">Action</th>
-                                </tr>
+                            <thead class="bg-black text-gray-400 uppercase sticky top-0 border-b border-red-900/40 font-mono">
+                                <tr><th class="p-3.5">#</th><th class="p-3.5">Grade</th><th class="p-3.5">Class</th><th class="p-3.5">No.</th><th class="p-3.5">Time</th><th class="p-3.5">Code</th><th class="p-3.5">Timestamp</th><th class="p-3.5">Action</th></tr>
                             </thead>
-                            <tbody id="spamTableBody" class="divide-y divide-red-950 font-mono">
-                            </tbody>
+                            <tbody id="spamTableBody" class="divide-y divide-red-950 font-mono"></tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
     <footer class="relative z-10 w-full py-6 text-center text-xs text-gray-400">
         <div class="max-w-md mx-auto flex flex-col items-center space-y-2">
-            <div class="flex items-center space-x-2">
-                <span class="w-2 h-2 rounded-full bg-uganda-yellow animate-pulse"></span>
-                <span>Uganda Week Celebration • Cultural Registration</span>
-            </div>
-            <p class="text-[11px] text-gray-400">
-                Admin: Click 🇺🇬 icon 5 times or 
-                <button onclick="openAdminModal()" class="text-uganda-yellow underline hover:text-white">open Admin Panel</button>.
-            </p>
+            <span>Uganda Week Celebration • Registration</span>
+            <p class="text-[11px]">Admin: Click 🇺🇬 icon 5 times</p>
         </div>
     </footer>
 
     <script>
-        // --- CONSTANTS & STORAGE KEYS ---
-        const ADMIN_SECRET_PASS = "20UgandaGbCrBd26";
-        const STORAGE_KEY_ENTRIES = 'uganda_week_all_entries_v2';
-        const STORAGE_KEY_TIME_RANGE = 'uganda_week_time_range';
-        const STORAGE_KEY_DEVICE_ID = 'uganda_week_device_id_v2';
-        const STORAGE_KEY_WEBHOOK = 'uganda_week_webhook_url_v2';
-        const SPAM_THRESHOLD = 8;
+        const ADMIN_PASS = "20UgandaGbCrBd26";
+        const KEY_ENTRIES = 'uganda_week_entries';
+        const KEY_DEVICE = 'uganda_week_device';
+        const WEBHOOK = "https://script.google.com/macros/s/AKfycbx2I-TBIZnku-0iW-_fMJ4mdXRwWgEshlt0KcsNzhPoHypJ63WeBwPBwgK8wHenrCrp/exec";
+        
+        let clickCount = 0, clickTimer = null;
+        let deviceId = localStorage.getItem(KEY_DEVICE) || (() => {
+            let id = 'DEV-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+            localStorage.setItem(KEY_DEVICE, id);
+            return id;
+        })();
 
-        const HARDCODED_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbx2I-TBIZnku-0iW-_fMJ4mdXRwWgEshlt0KcsNzhPoHypJ63WeBwPBwgK8wHenrCrp/exec";
-
-        let triggerClickCount = 0;
-        let triggerClickTimer = null;
-        let timeRange = {min: "13:00", max: "13:50"};
-
-        let deviceId = localStorage.getItem(STORAGE_KEY_DEVICE_ID);
-        if (!deviceId) {
-            deviceId = 'DEV-' + Math.random().toString(36).substring(2, 9).toUpperCase();
-            localStorage.setItem(STORAGE_KEY_DEVICE_ID, deviceId);
-        }
-
-        function generateUniqueNonRepeatingCode() {
-            const length = Math.random() > 0.5 ? 4 : 5;
-            const digits = [];
-
-            if (length === 4) {
-                const firstDigit = Math.floor(Math.random() * 9) + 1;
-                digits.push(firstDigit);
-                while(digits.length < 4) {
-                    const rand = Math.floor(Math.random() * 10);
-                    if(!digits.includes(rand)){
-                        digits.push(rand);
-                    }
-                }
-            } else {
-                while(digits.length < 5) {
-                    const rand = Math.floor(Math.random() * 10);
-                    if(!digits.includes(rand)){
-                        digits.push(rand);
-                    }
-                }
-            }
-            return digits.join('');
-        }
-
-        // --- INITIALIZATION ---
         window.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
-            loadTimeRangeSetting();
-            populateClassNoOptions();
-            populateTimeOptions();
-            setupSecretTrigger();
-            loadWebhookUrl();
-            fetchRemoteEntries(); // Auto sync on load if cloud is configured
-
-            document.getElementById('gradeSelect').addEventListener('change', hideDuplicateWarning);
-            document.getElementById('classSelect').addEventListener('change', hideDuplicateWarning);
-            document.getElementById('classNoSelect').addEventListener('change', hideDuplicateWarning);
+            populateTimes();
+            populateClassNos();
+            setupTrigger();
+            fetchRemoteEntries();
+            setInterval(fetchRemoteEntries, 6000);
+            ['gradeSelect', 'classSelect', 'classNoSelect'].forEach(id => {
+                document.getElementById(id).addEventListener('change', () => document.getElementById('duplicateWarning').classList.add('hidden'));
+            });
         });
 
-        function loadWebhookUrl(){
-            const savedUrl = localStorage.getItem(STORAGE_KEY_WEBHOOK) || HARDCODED_WEBHOOK_URL;
-            const input = document.getElementById('webhookUrlInput');
-            const badge = document.getElementById('webhookStatusBadge');
-            if(input) input.value = savedUrl;
-            if(savedUrl && savedUrl.trim() !== ""){
-                if(badge){
-                    badge.innerText = "Cloud Sync Active";
-                    badge.className = "text-[10px] px-2 py-0.5 rounded bg-green-950 text-green-400 border border-green-800";
-                }
-            } else {
-                if(badge){
-                    badge.innerText = "Local Storage Only";
-                    badge.className = "text-[10px] px-2 py-0.5 rounded bg-yellow-950 text-yellow-400 border border-yellow-800";
-                }
+        function populateTimes() {
+            let sel = document.getElementById('timeSelect');
+            for(let m = 780; m <= 830; m += 10) {
+                let time = `${String(Math.floor(m/60)).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`;
+                let opt = document.createElement('option');
+                opt.value = opt.textContent = time;
+                sel.appendChild(opt);
             }
         }
 
-        function saveWebhookUrl(){
-            const urlVal = document.getElementById('webhookUrlInput').value.trim();
-            localStorage.setItem(STORAGE_KEY_WEBHOOK, urlVal);
-            loadWebhookUrl();
-            alert("Cloud Sync Webhook URL updated! Devices submitting registrations will now log centrally.");
-        }
-
-        function loadTimeRangeSetting(){
-            const saved = localStorage.getItem(STORAGE_KEY_TIME_RANGE);
-            if(saved){
-                timeRange = JSON.parse(saved);
+        function populateClassNos() {
+            let sel = document.getElementById('classNoSelect');
+            for(let i=1; i<=45; i++) {
+                let opt = document.createElement('option');
+                opt.value = i; opt.textContent = `No. ${i}`;
+                sel.appendChild(opt);
             }
-            document.getElementById('timeMin').value = timeRange.min;
-            document.getElementById('timeMax').value = timeRange.max;
         }
 
-        function saveTimeRange(){
-            const minVal = document.getElementById('timeMin').value;
-            const maxVal = document.getElementById('timeMax').value;
+        function getEntries() {
+            let d = localStorage.getItem(KEY_ENTRIES);
+            return d ? JSON.parse(d) : [];
+        }
 
-            if(minVal < "12:30" || maxVal > "13:55" || minVal >= maxVal){
-                alert("Please ensure times are within the valid bounds (12:30 to 13:55) and Minimum is less than Maximum.");
+        function saveEntries(arr) {
+            localStorage.setItem(KEY_ENTRIES, JSON.stringify(arr));
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            let g = document.getElementById('gradeSelect').value;
+            let c = document.getElementById('classSelect').value;
+            let n = parseInt(document.getElementById('classNoSelect').value);
+            let t = document.getElementById('timeSelect').value;
+
+            let entries = getEntries();
+            if(entries.some(item => item.grade === g && item.class === c && item.classNo === n)) {
+                document.getElementById('duplicateWarning').classList.remove('hidden');
                 return;
             }
 
-            timeRange.min = minVal;
-            timeRange.max = maxVal;
-            localStorage.setItem(STORAGE_KEY_TIME_RANGE, JSON.stringify(timeRange));
-            populateTimeOptions();
-            alert("Time range updated successfully!");
+            let code = Array.from({length: Math.random() > 0.5 ? 4 : 5}, () => Math.floor(Math.random()*10)).join('');
+            let entry = { id: Date.now(), grade: g, class: c, classNo: n, timeSlot: t, code: code, timestamp: new Date().toLocaleString(), deviceId: deviceId, isPermanentSpam: entries.filter(x => x.deviceId === deviceId).length >= 8 };
+
+            entries.push(entry);
+            saveEntries(entries);
+            sendWebhook(entry);
+            showTicket(entry);
         }
 
-        function populateTimeOptions(){
-            const timeSelect = document.getElementById('timeSelect');
-            timeSelect.innerHTML = "";
-            const [minH, minM] = timeRange.min.split(":").map(Number);
-            const [maxH, maxM] = timeRange.max.split(":").map(Number);
-
-            let currentMin = minH * 60 + minM;
-            const endMin = maxH * 60 + maxM;
-            let defaultSet = false;
-
-            while(currentMin <= endMin){
-                const hh = String(Math.floor(currentMin / 60)).padStart(2,"0");
-                const mm = String(currentMin % 60).padStart(2,"0");
-                const timeStr = `${hh}:${mm}`;
-                const opt = document.createElement("option");
-                opt.value = timeStr;
-                opt.textContent = timeStr;
-                if(timeStr === "13:00" || (!defaultSet && timeSelect.options.length === 0)){
-                    opt.selected = true;
-                    defaultSet = true;
-                }
-                timeSelect.appendChild(opt);
-                currentMin += 10;
-            }
-            if(!defaultSet && timeSelect.options.length > 0){
-                timeSelect.options[0].selected = true;
-            }
-        }
-
-        function hideDuplicateWarning(){
-            document.getElementById('duplicateWarning').classList.add('hidden');
-        }
-
-        function populateClassNoOptions() {
-            const select = document.getElementById('classNoSelect');
-            for (let i = 1; i <= 45; i++) {
-                const opt = document.createElement('option');
-                opt.value = i;
-                opt.textContent = `No. ${i}`;
-                select.appendChild(opt);
-            }
-        }
-
-        function isDuplicateStudent(grade, cls, no){
-            const entries = getEntriesFromDatabase();
-            return entries.some(e => e.grade === grade && e.class === cls && e.classNo === Number(no));
-        }
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-
-            const grade = document.getElementById('gradeSelect').value;
-            const cls = document.getElementById('classSelect').value;
-            const classNo = document.getElementById('classNoSelect').value;
-            const selectedTimeSlot = document.getElementById('timeSelect').value;
-
-            if (!grade || !cls || !classNo || !selectedTimeSlot) {
-                alert('Please fill out all required fields.');
-                return;
-            }
-
-            if(isDuplicateStudent(grade, cls, classNo)){
-                showDuplicateWarning();
-                return;
-            }
-            hideDuplicateWarning();
-
-            const uniqueCode = generateUniqueNonRepeatingCode();
-            const timestamp = new Date().toLocaleString();
-
-            const entries = getEntriesFromDatabase();
-            const deviceEntries = entries.filter(e => e.deviceId === deviceId);
-            const newDeviceTotal = deviceEntries.length + 1;
-            let willMarkSpam = newDeviceTotal > SPAM_THRESHOLD;
-
-            const newEntry = {
-                id: Date.now(),
-                grade: grade,
-                class: cls,
-                classNo: parseInt(classNo),
-                timeSlot: selectedTimeSlot,
-                code: uniqueCode,
-                timestamp: timestamp,
-                deviceId: deviceId,
-                createdAt: Date.now(),
-                isPermanentSpam: willMarkSpam
-            };
-
-            if(willMarkSpam){
-                entries.forEach(e => {
-                    if(e.deviceId === deviceId) e.isPermanentSpam = true;
-                });
-            }
-
-            entries.push(newEntry);
-            saveAllEntries(entries);
-
-            sendToLiveWebhook(newEntry);
-            displayResultCard(newEntry);
-        }
-
-        function saveAllEntries(entryList) {
-            localStorage.setItem(STORAGE_KEY_ENTRIES, JSON.stringify(entryList));
-        }
-
-        function getEntriesFromDatabase() {
-            const data = localStorage.getItem(STORAGE_KEY_ENTRIES);
-            return data ? JSON.parse(data) : [];
-        }
-
-        function deleteSingleEntry(entryId) {
-            let entries = getEntriesFromDatabase();
-            entries = entries.filter(item => item.id !== entryId);
-            saveAllEntries(entries);
-            renderTable();
-        }
-
-        function clearAllSpamRecords(){
-            let entries = getEntriesFromDatabase();
-            entries = entries.filter(e => !e.isPermanentSpam);
-            saveAllEntries(entries);
-            renderTable();
-            alert("All flagged entries cleared.");
-        }
-
-        function sendToLiveWebhook(entry) {
-            const finalUrl = localStorage.getItem(STORAGE_KEY_WEBHOOK) || HARDCODED_WEBHOOK_URL;
-            if (!finalUrl || finalUrl.trim() === "") return;
-
-            try {
-                fetch(finalUrl, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(entry)
-                }).catch(err => console.log('Sync notice:', err));
-            } catch (e) {
-                console.error(e);
-            }
+        function sendWebhook(entry) {
+            if(!WEBHOOK) return;
+            fetch(WEBHOOK, { method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'text/plain;charset=utf-8'}, body: JSON.stringify(entry) }).catch(()=>{});
         }
 
         function fetchRemoteEntries() {
-            const finalUrl = localStorage.getItem(STORAGE_KEY_WEBHOOK) || HARDCODED_WEBHOOK_URL;
-            if (!finalUrl || finalUrl.trim() === "") return;
-
-            fetch(finalUrl + '?action=getRecords')
-                .then(res => res.json())
-                .then(remoteEntries => {
-                    if (Array.isArray(remoteEntries) && remoteEntries.length > 0) {
-                        saveAllEntries(remoteEntries);
+            if(!WEBHOOK) return;
+            let cb = 'cb_' + Math.random().toString(36).substring(2);
+            window[cb] = function(res) {
+                delete window[cb];
+                if(script.parentNode) script.parentNode.removeChild(script);
+                if(Array.isArray(res)) { 
+                    saveEntries(res); 
+                    if(!document.getElementById('adminModal').classList.contains('hidden')) {
                         renderTable();
                     }
-                })
-                .catch(err => console.log('Background cloud fetch note:', err));
+                }
+            };
+            let script = document.createElement('script');
+            script.src = WEBHOOK + '?action=getRecords&callback=' + cb;
+            document.body.appendChild(script);
         }
 
-        function displayResultCard(entry) {
-            document.getElementById('resGrade').innerText = entry.grade;
-            document.getElementById('resClass').innerText = entry.class;
-            document.getElementById('resClassNo').innerText = entry.classNo;
-            document.getElementById('resTimeSlot').innerText = entry.timeSlot;
-            document.getElementById('resCode').innerText = entry.code;
-            document.getElementById('resRegisterTime').innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-
-            const formCard = document.getElementById('formCard');
-            const ticketCard = document.getElementById('ticketCard');
-
-            formCard.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-                formCard.classList.add('hidden');
-                ticketCard.classList.remove('hidden', 'opacity-0', 'scale-95');
-                ticketCard.classList.add('opacity-100', 'scale-100');
-            }, 300);
+        function showTicket(e) {
+            document.getElementById('resGrade').textContent = e.grade;
+            document.getElementById('resClass').textContent = e.class;
+            document.getElementById('resClassNo').textContent = e.classNo;
+            document.getElementById('resTimeSlot').textContent = e.timeSlot;
+            document.getElementById('resCode').textContent = e.code;
+            document.getElementById('formCard').classList.add('hidden');
+            document.getElementById('ticketCard').classList.remove('hidden');
         }
 
         function resetFormView() {
-            const formCard = document.getElementById('formCard');
-            const ticketCard = document.getElementById('ticketCard');
-
-            ticketCard.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-                ticketCard.classList.add('hidden');
-                formCard.classList.remove('hidden', 'opacity-0', 'scale-95');
-                formCard.classList.add('opacity-100', 'scale-100');
-                hideDuplicateWarning();
-                document.getElementById('registrationForm').reset();
-                populateTimeOptions();
-            }, 300);
+            document.getElementById('ticketCard').classList.add('hidden');
+            document.getElementById('formCard').classList.remove('hidden');
+            document.getElementById('registrationForm').reset();
+            document.getElementById('duplicateWarning').classList.add('hidden');
         }
 
-        function setupSecretTrigger() {
-            const icon = document.getElementById('secretTriggerIcon');
-            icon.addEventListener('click', () => {
-                triggerClickCount++;
-                clearTimeout(triggerClickTimer);
-                
-                triggerClickTimer = setTimeout(() => {
-                    triggerClickCount = 0;
-                }, 2000);
-
-                if (triggerClickCount >= 5) {
-                    triggerClickCount = 0;
-                    openAdminModal();
-                }
+        function setupTrigger() {
+            document.getElementById('secretTriggerIcon').addEventListener('click', () => {
+                clickCount++; clearTimeout(clickTimer);
+                clickTimer = setTimeout(() => clickCount = 0, 2000);
+                if(clickCount >= 5) { clickCount = 0; openAdminModal(); }
             });
         }
 
         function openAdminModal() {
-            const modal = document.getElementById('adminModal');
-            modal.classList.remove('hidden');
-            
-            const passInput = document.getElementById('adminPassInput');
-            if (passInput) {
-                passInput.value = '';
-                passInput.type = 'password';
-            }
-            
-            document.getElementById('adminPassError').classList.add('hidden');
+            document.getElementById('adminModal').classList.remove('hidden');
+            document.getElementById('adminPassInput').value = '';
             document.getElementById('adminAuthView').classList.remove('hidden');
             document.getElementById('adminDataView').classList.add('hidden');
-            hideClearLogVerification();
-            loadTimeRangeSetting();
-            loadWebhookUrl();
             fetchRemoteEntries();
             lucide.createIcons();
         }
 
         function closeAdminModal() {
-            const passInput = document.getElementById('adminPassInput');
-            if (passInput) {
-                passInput.value = '';
-                passInput.type = 'password';
-            }
-            
-            document.getElementById('adminAuthView').classList.add('hidden');
-            document.getElementById('adminDataView').classList.add('hidden');
             document.getElementById('adminModal').classList.add('hidden');
-            hideClearLogVerification();
         }
 
         function togglePassVisibility() {
-            const passInput = document.getElementById('adminPassInput');
-            const eyeIcon = document.getElementById('eyeIcon');
-            if (passInput.type === 'password') {
-                passInput.type = 'text';
-                eyeIcon.setAttribute('data-lucide', 'eye-off');
-            } else {
-                passInput.type = 'password';
-                eyeIcon.setAttribute('data-lucide', 'eye');
-            }
-            lucide.createIcons();
+            let i = document.getElementById('adminPassInput');
+            i.type = i.type === 'password' ? 'text' : 'password';
         }
 
         function verifyAdminPass() {
-            const passInput = document.getElementById('adminPassInput').value;
-            if (passInput === ADMIN_SECRET_PASS) {
-                document.getElementById('adminPassError').classList.add('hidden');
-                showAdminDataView();
+            if(document.getElementById('adminPassInput').value === ADMIN_PASS) {
+                document.getElementById('adminAuthView').classList.add('hidden');
+                document.getElementById('adminDataView').classList.remove('hidden');
+                renderTable();
             } else {
                 document.getElementById('adminPassError').classList.remove('hidden');
             }
         }
 
-        function showAdminDataView() {
-            document.getElementById('adminAuthView').classList.add('hidden');
-            document.getElementById('adminDataView').classList.remove('hidden');
-            fetchRemoteEntries();
+        function renderTable() {
+            let vTbody = document.getElementById('validTableBody'), sTbody = document.getElementById('spamTableBody');
+            let q = document.getElementById('searchInput').value.toLowerCase();
+            let entries = getEntries();
+            vTbody.innerHTML = ''; sTbody.innerHTML = '';
+            let valid = 0, spam = 0;
+
+            entries.filter(i => `${i.grade} ${i.class} ${i.code} ${i.timeSlot}`.toLowerCase().includes(q)).forEach((e, idx) => {
+                let tr = document.createElement('tr');
+                tr.className = 'hover:bg-gray-900 transition';
+                tr.innerHTML = `<td class="p-3.5 text-gray-500">${idx+1}</td><td class="p-3.5 font-bold text-uganda-yellow">${e.grade}</td><td class="p-3.5 text-white">${e.class}</td><td class="p-3.5 text-white">${e.classNo}</td><td class="p-3.5 text-uganda-yellow">${e.timeSlot}</td><td class="p-3.5 font-mono text-uganda-yellow font-bold">${e.code}</td><td class="p-3.5 text-gray-400 text-[11px]">${e.timestamp}</td><td class="p-3.5"><button onclick="deleteEntry(${e.id})" class="px-2 py-1 rounded bg-black border border-red-900 text-red-400 hover:bg-red-950 text-[10px]">Delete</button></td>`;
+                if(e.isPermanentSpam) { sTbody.appendChild(tr); spam++; } else { vTbody.appendChild(tr); valid++; }
+            });
+
+            document.getElementById('totalCount').textContent = entries.length;
+            document.getElementById('validCount').textContent = valid;
+            document.getElementById('spamCount').textContent = spam;
+        }
+
+        function deleteEntry(id) {
+            saveEntries(getEntries().filter(i => i.id !== id));
             renderTable();
         }
 
-        function renderTable() {
-            const validTbody = document.getElementById('validTableBody');
-            const spamTbody = document.getElementById('spamTableBody');
-            const searchVal = document.getElementById('searchInput').value.toLowerCase();
-            const entries = getEntriesFromDatabase();
-
-            validTbody.innerHTML = '';
-            spamTbody.innerHTML = '';
-
-            let total = entries.length;
-            let validCount = 0;
-            let spamCount = 0;
-
-            const filtered = entries.filter(item => {
-                return (
-                    item.grade.toLowerCase().includes(searchVal) ||
-                    item.class.toLowerCase().includes(searchVal) ||
-                    String(item.classNo).includes(searchVal) ||
-                    item.code.toLowerCase().includes(searchVal) ||
-                    (item.timeSlot && item.timeSlot.toLowerCase().includes(searchVal))
-                );
-            });
-
-            filtered.forEach((entry, index) => {
-                const isSpam = !!entry.isPermanentSpam;
-                const tr = document.createElement('tr');
-                tr.className = 'hover:bg-gray-900 transition';
-                tr.innerHTML = `
-                    <td class="p-3.5 text-gray-500">${index + 1}</td>
-                    <td class="p-3.5 font-bold text-uganda-yellow">${entry.grade}</td>
-                    <td class="p-3.5 text-white">${entry.class}</td>
-                    <td class="p-3.5 text-white">${entry.classNo}</td>
-                    <td class="p-3.5 text-uganda-yellow">${entry.timeSlot || '--'}</td>
-                    <td class="p-3.5 font-mono text-uganda-yellow font-bold">${entry.code}</td>
-                    <td class="p-3.5 text-gray-400 text-[11px]">${entry.timestamp}</td>
-                    <td class="p-3.5">
-                        <button onclick="deleteSingleEntry(${entry.id})" class="px-2 py-1 rounded bg-black border border-red-900 text-red-400 hover:bg-red-950 text-[10px]">
-                            Delete
-                        </button>
-                    </td>
-                `;
-                if(isSpam){
-                    spamTbody.appendChild(tr);
-                    spamCount++;
-                }else{
-                    validTbody.appendChild(tr);
-                    validCount++;
-                }
-            });
-
-            if(validTbody.innerHTML === '') validTbody.innerHTML = `<tr><td colspan="8" class="p-6 text-center text-gray-500">No valid records</td></tr>`;
-            if(spamTbody.innerHTML === '') spamTbody.innerHTML = `<tr><td colspan="8" class="p-6 text-center text-gray-500">No flagged entries</td></tr>`;
-
-            document.getElementById('totalCount').innerText = total;
-            document.getElementById('validCount').innerText = validCount;
-            document.getElementById('spamCount').innerText = spamCount;
-        }
-
         function exportToCSV() {
-            const entries = getEntriesFromDatabase();
-            if (entries.length === 0) {
-                alert('No entries available to export.');
-                return;
-            }
-
-            let csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "Sequence,Grade,Class,ClassNumber,TimeSlot,Code,Timestamp,StatusFlag\n";
-
-            entries.forEach((row, idx) => {
-                const spamFlag = row.isPermanentSpam ? "FLAGGED" : "OK";
-                const line = [
-                    idx + 1,
-                    `"${row.grade}"`,
-                    `"${row.class}"`,
-                    row.classNo,
-                    `"${row.timeSlot || ''}"`,
-                    `"${row.code}"`,
-                    `"${row.timestamp}"`,
-                    `"${spamFlag}"`
-                ].join(",");
-                csvContent += line + "\n";
-            });
-
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", `Uganda_Week_Master_Excel_${new Date().toISOString().slice(0,10)}.csv`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            let entries = getEntries();
+            if(!entries.length) return alert('No entries.');
+            let csv = "data:text/csv;charset=utf-8,Seq,Grade,Class,No,Time,Code,Timestamp\n" + entries.map((r,i)=>`${i+1},"${r.grade}","${r.class}",${r.classNo},"${r.timeSlot}","${r.code}","${r.timestamp}"`).join("\n");
+            let link = document.createElement("a");
+            link.href = encodeURI(csv);
+            link.download = `Uganda_Week_${Date.now()}.csv`;
+            document.body.appendChild(link); link.click(); document.body.removeChild(link);
         }
 
-        function showClearLogVerification(){
-            document.getElementById('clearVerifyPanel').classList.remove('hidden');
-        }
-        function hideClearLogVerification(){
-            document.getElementById('clearVerifyPanel').classList.add('hidden');
-            document.getElementById('clearPassError').classList.add('hidden');
-            document.getElementById('clearPassInput').value = '';
-        }
-        function confirmClearLog(){
-            const inputPass = document.getElementById('clearPassInput').value;
-            if(inputPass === ADMIN_SECRET_PASS){
-                localStorage.removeItem(STORAGE_KEY_ENTRIES);
+        function showClearLogVerification() { document.getElementById('clearVerifyPanel').classList.remove('hidden'); }
+        function hideClearLogVerification() { document.getElementById('clearVerifyPanel').classList.add('hidden'); }
+        function confirmClearLog() {
+            if(document.getElementById('clearPassInput').value === ADMIN_PASS) {
+                localStorage.removeItem(KEY_ENTRIES);
                 renderTable();
                 hideClearLogVerification();
-                alert("All records cleared.");
-            }else{
-                document.getElementById('clearPassError').classList.remove('hidden');
+            } else {
+                document.getElementById('clearPassError2').classList.remove('hidden');
             }
         }
-
-        lucide.createIcons();
     </script>
 </body>
 </html>
